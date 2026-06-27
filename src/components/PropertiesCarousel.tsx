@@ -31,13 +31,13 @@ export default function PropertiesCarousel() {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex + cardsToShow >= projects.length ? 0 : prevIndex + 1
+      prevIndex + cardsToShow >= projects.length ? prevIndex : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? Math.max(0, projects.length - cardsToShow) : prevIndex - 1
+      prevIndex === 0 ? 0 : prevIndex - 1
     );
   };
 
@@ -97,14 +97,16 @@ export default function PropertiesCarousel() {
           <div className="flex gap-4 mt-6 md:mt-0">
             <button
               onClick={prevSlide}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 active:scale-95 cursor-pointer"
+              disabled={currentIndex === 0}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 active:scale-95 cursor-pointer disabled:opacity-40 disabled:pointer-events-none"
               aria-label="Previous project"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 active:scale-95 cursor-pointer"
+              disabled={currentIndex + cardsToShow >= projects.length}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 active:scale-95 cursor-pointer disabled:opacity-40 disabled:pointer-events-none"
               aria-label="Next project"
             >
               <ChevronRight className="h-6 w-6" />
