@@ -71,7 +71,7 @@ export default function ProjectsShowcase() {
             className="flex items-center justify-center gap-2 mb-4"
           >
             <span className="h-0.5 w-8 bg-primary-red" />
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary-red">
+            <span className="text-sm font-semibold uppercase tracking-widest text-gradient-red">
               Curated Masterpieces
             </span>
             <span className="h-0.5 w-8 bg-primary-red" />

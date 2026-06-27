@@ -20,7 +20,7 @@ const keyPoints = [
   {
     icon: Award,
     title: "Award-Winning Expertise",
-    desc: "Over 15 years of industry leadership in catering to elite clients looking for premium residential and commercial spaces.",
+    desc: "Over 16 years of industry leadership in catering to elite clients looking for premium residential and commercial spaces.",
   },
   {
     icon: Building2,
@@ -103,7 +103,7 @@ export default function AboutSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Title Block */}
         <div className="mx-auto max-w-3xl text-center mb-20">
-          <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-primary-red">
+          <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-gradient-red">
             About Vijata Properties
           </h2>
           <h3 className="section-title mt-4 font-serif text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl">

@@ -125,7 +125,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
             {/* Project Category Tag */}
             <div className="flex items-center gap-2 mb-4">
               <span className="h-0.5 w-12 bg-primary-red animate-pulse" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-primary-red">
+              <span className="text-sm font-semibold uppercase tracking-widest text-gradient-red">
                 {project.type} • {project.status}
               </span>
             </div>
@@ -287,22 +287,24 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
           </section>
 
           {/* 6. Video Showcase */}
-          <section id="video" className="scroll-mt-32">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-gray-950">
-              Cinematic Showcase
-            </h2>
-            <div className="mt-2 w-16 h-1 bg-primary-red" />
-            
-            <div className="mt-6 relative rounded-3xl overflow-hidden shadow-lg aspect-video bg-black border border-gray-900">
-              <iframe
-                src={project.videoUrl}
-                title={`${project.name} Video Walkthrough`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full border-none"
-              ></iframe>
-            </div>
-          </section>
+          {project.videoUrl && (
+            <section id="video" className="scroll-mt-32">
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-gray-950">
+                Cinematic Showcase
+              </h2>
+              <div className="mt-2 w-16 h-1 bg-primary-red" />
+              
+              <div className="mt-6 relative rounded-3xl overflow-hidden shadow-lg aspect-video bg-black border border-gray-900">
+                <video
+                  src={project.videoUrl}
+                  controls
+                  preload="metadata"
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+            </section>
+          )}
 
           {/* 7. Image Gallery */}
           <section id="gallery" className="scroll-mt-32">

@@ -100,7 +100,7 @@ export default function HeroSection() {
           {/* Subtitle */}
           <div className="hero-subtitle mb-4 flex items-center gap-2" style={{ opacity: 0 }}>
             <span className="h-0.5 w-12 bg-primary-red" />
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary-red">
+            <span className="text-sm font-semibold uppercase tracking-widest text-gradient-red">
               Introducing Vijata Properties
             </span>
           </div>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-red: #C8102E;
+  --color-primary-red: #DE1A26;
   --color-luxury-black: #0F0F11;
   --color-luxury-charcoal: #1E1E22;
   --color-luxury-gold: #D4AF37;
@@ -10,6 +10,27 @@
   --font-sans: var(--font-inter), sans-serif;
   
   --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Global Gradient Red background overrides */
+.bg-primary-red {
+  background: linear-gradient(135deg, #DE1A26 0%, #800A12 100%) !important;
+}
+
+/* Hover overrides for gradient red buttons */
+.hover\:bg-red-700:hover,
+.hover\:bg-primary-red:hover {
+  background: linear-gradient(135deg, #F02835 0%, #9C0E18 100%) !important;
+}
+
+/* Custom utility for premium text gradient red */
+.text-gradient-red {
+  background: linear-gradient(135deg, #DE1A26 0%, #800A12 100%);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  display: inline-block;
 }
 
 :root {

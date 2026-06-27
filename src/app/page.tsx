@@ -53,7 +53,7 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="mt-3 text-xs uppercase tracking-[0.6em] text-primary-red font-semibold"
+                className="mt-3 text-xs uppercase tracking-[0.6em] text-gradient-red font-semibold"
               >
                 Premium Estates
               </motion.p>

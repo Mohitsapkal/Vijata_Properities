@@ -20,10 +20,10 @@ export default function Footer() {
           {/* Logo & Intro */}
           <div className="lg:col-span-5 space-y-6">
             <span className="font-serif text-2xl font-extrabold tracking-wider text-white">
-              VIJATA <span className="text-primary-red">PROPERTIES</span>
+              VIJATA <span className="text-gradient-red">PROPERTIES</span>
             </span>
             <p className="text-sm leading-relaxed text-gray-400 max-w-md">
-              Crafting premium architectural futures and securing trusted, luxury estates since 2011. Your dream lifestyle, curated by elite experts.
+              Crafting premium architectural futures and securing trusted, luxury estates since 2010. Your dream lifestyle, curated by elite experts.
             </p>
             {/* Social Icons */}
             <div className="flex gap-4">

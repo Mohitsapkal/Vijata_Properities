@@ -6,19 +6,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const stats = [
   {
-    value: 15,
-    suffix: "+",
-    label: "Years of Luxury Expertise",
+    value: 2010,
+    suffix: "",
+    label: "Established Since",
   },
   {
-    value: 1200,
-    suffix: "+",
-    label: "Premium Properties Sold",
+    value: 12,
+    suffix: "K+",
+    label: "Trusted Customers",
   },
   {
-    value: 35,
+    value: 500,
     suffix: "+",
-    label: "Strategic Corporate Alliances",
+    label: "Acres of Area Sold",
   },
   {
     value: 1.5,

@@ -74,7 +74,7 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header Block */}
         <div className="mx-auto max-w-3xl text-center mb-16">
-          <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-primary-red">
+          <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-gradient-red">
             Client Stories
           </h2>
           <h3 className="section-title mt-4 font-serif text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl">

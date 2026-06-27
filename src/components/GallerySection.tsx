@@ -91,7 +91,7 @@ export default function GallerySection() {
         {/* Header block */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div className="max-w-2xl">
-            <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-primary-red">
+            <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-gradient-red">
               Visual Showcase
             </h2>
             <h3 className="section-title mt-4 font-serif text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">

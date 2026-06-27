@@ -82,12 +82,12 @@ export default function Navbar() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <span className="font-serif text-2xl font-extrabold tracking-wider">
-                VIJATA <span className="text-primary-red">PROPERTIES</span>
+                VIJATA <span className="text-gradient-red">PROPERTIES</span>
               </span>
             </motion.a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-6 lg:gap-8 md:ml-auto md:mr-8 lg:mr-12">
               {navLinks.map((link, idx) => (
                 <motion.a
                   key={link.name}
