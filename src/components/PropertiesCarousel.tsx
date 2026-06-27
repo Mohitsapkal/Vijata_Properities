@@ -10,6 +10,7 @@ import { projects } from "@/data/projects";
 export default function PropertiesCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(1);
+  const [dragOffset, setDragOffset] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   // Responsiveness tracker for number of visible cards
@@ -40,6 +41,24 @@ export default function PropertiesCarousel() {
     );
   };
 
+  const handlePan = (event: any, info: any) => {
+    if (cardsToShow < projects.length) {
+      setDragOffset(info.offset.x);
+    }
+  };
+
+  const handlePanEnd = (event: any, info: any) => {
+    if (cardsToShow < projects.length) {
+      const swipeThreshold = 50;
+      if (info.offset.x < -swipeThreshold) {
+        nextSlide();
+      } else if (info.offset.x > swipeThreshold) {
+        prevSlide();
+      }
+    }
+    setDragOffset(0);
+  };
+
   const getWhatsAppLink = (projName: string) => {
     const message = encodeURIComponent(
       `Hello Vijata Properties, I am interested in inquiring about the project: "${projName}". Please share brochure and price details.`
@@ -51,7 +70,7 @@ export default function PropertiesCarousel() {
     <section id="properties" className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header Block */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16">
           <div className="max-w-2xl">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -74,13 +93,7 @@ export default function PropertiesCarousel() {
           </div>
           
           {/* Navigation Buttons */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex gap-4 mt-6 md:mt-0"
-          >
+          <div className="flex gap-4 mt-6 md:mt-0">
             <button
               onClick={prevSlide}
               className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 active:scale-95 cursor-pointer"
@@ -95,14 +108,20 @@ export default function PropertiesCarousel() {
             >
               <ChevronRight className="h-6 w-6" />
             </button>
-          </motion.div>
+          </div>
         </div>
 
         {/* Carousel Tracks */}
         <div className="relative overflow-hidden" ref={carouselRef}>
           <motion.div
-            className="flex gap-6 cursor-grab active:cursor-grabbing"
-            animate={{ x: `-${currentIndex * (100 / cardsToShow)}%` }}
+            className="flex gap-6 cursor-grab active:cursor-grabbing touch-pan-y"
+            onPan={handlePan}
+            onPanEnd={handlePanEnd}
+            animate={{
+              x: dragOffset !== 0
+                ? `calc(-${currentIndex * (100 / cardsToShow)}% + ${dragOffset}px)`
+                : `-${currentIndex * (100 / cardsToShow)}%`
+            }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             style={{ width: `${(projects.length / cardsToShow) * 100}%` }}
           >
