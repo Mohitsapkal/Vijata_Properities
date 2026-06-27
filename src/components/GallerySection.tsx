@@ -10,31 +10,31 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const galleryItems = [
   {
     id: "g1",
-    title: "The Aurora Sky Penthouse",
+    title: "The Royal Heights Residency",
     category: "Penthouse",
     image: "/images/prop_penthouse.png",
   },
   {
     id: "g2",
-    title: "Villa Sol y Mar",
+    title: "Orchard Luxury Villa",
     category: "Villa",
     image: "/images/prop_villa.png",
   },
   {
     id: "g3",
-    title: "Aurora Executive Tower Lobby",
+    title: "Vijata Commercial Center",
     category: "Commercial",
     image: "/images/prop_commercial.png",
   },
   {
     id: "g4",
-    title: "Bel Air Manor Estates",
-    category: "Villa",
-    image: "/images/hero_mansion.png",
+    title: "Vijata Premium NA Plots",
+    category: "Plots",
+    image: "/images/prop_plot.png",
   },
 ];
 
-const categories = ["All", "Villa", "Penthouse", "Commercial"];
+const categories = ["All", "Villa", "Penthouse", "Commercial", "Plots"];
 
 export default function GallerySection() {
   const [activeCategory, setActiveCategory] = useState("All");

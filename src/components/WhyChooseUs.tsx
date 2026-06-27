@@ -8,23 +8,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const values = [
   {
     icon: Compass,
-    title: "Elite Global Network",
-    desc: "Gain access to a premium, curated portfolio of off-market luxury estates, penthouses, and primary commercial opportunities globally.",
+    title: "Elite Regional Portfolio",
+    desc: "Gain access to a premium, curated portfolio of residential layouts, luxury villas, and high-appreciating NA plots in prime growth zones.",
   },
   {
     icon: KeyRound,
     title: "Bespoke Concierge",
-    desc: "Your journey is fully catered to by private advisors, arranging premium chauffeured visits, digital property walkthroughs, and customized floor plans.",
+    desc: "Your journey is fully catered to by private advisors, arranging personalized site visits, direct plot mapping, and custom layout consultations.",
   },
   {
     icon: Scale,
     title: "Documental & Legal Integrity",
-    desc: "Enjoy complete peace of mind with our dedicated, in-house legal team handling clean titles, escrow services, and regulatory compliance.",
+    desc: "Enjoy complete peace of mind with our dedicated, in-house legal team handling clean titles, RERA sanctions, and regulatory compliance.",
   },
   {
     icon: TrendingUp,
     title: "Smart Capital Growth",
-    desc: "We analyze historical appreciation, rental yields, and upcoming municipal planning to guide you toward high-value acquisitions.",
+    desc: "We analyze historical appreciation, development connectivity, and upcoming municipal planning to guide you toward high-value acquisitions.",
   },
 ];
 
