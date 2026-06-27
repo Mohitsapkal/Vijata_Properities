@@ -7,7 +7,7 @@ import { projects } from "@/data/projects";
 
 export default function WhatsAppButton() {
   const pathname = usePathname();
-  const phoneNumber = "919876543210";
+  const phoneNumber = "919823131416";
   
   // Dynamic message template based on active route
   let text = "Hi Vijata Properties, I am interested in exploring your premium residential and commercial properties. Please share more details.";

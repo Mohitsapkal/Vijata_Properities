@@ -2,16 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import FounderProfiles from "@/components/FounderProfiles";
 import PropertiesCarousel from "@/components/PropertiesCarousel";
+import ProjectHighlights from "@/components/ProjectHighlights";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import StatsSection from "@/components/StatsSection";
 import TimelineSection from "@/components/TimelineSection";
 import GallerySection from "@/components/GallerySection";
 import Testimonials from "@/components/Testimonials";
+import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
+import LocationMapSection from "@/components/LocationMapSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -37,12 +42,28 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] }}
             className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-luxury-black text-white"
           >
-            <div className="text-center">
+            <div className="text-center flex flex-col items-center">
+              {/* Logo Reveal */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="mb-6 relative w-24 h-24 rounded-full overflow-hidden border border-white/20 bg-white"
+              >
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Vijata Logo"
+                  fill
+                  sizes="96px"
+                  className="object-contain p-1"
+                />
+              </motion.div>
+
               {/* Premium Logo Reveal */}
               <motion.h1
                 initial={{ opacity: 0, letterSpacing: "0.2em", y: 20 }}
                 animate={{ opacity: 1, letterSpacing: "0.4em", y: 0 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
+                transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
                 className="font-serif text-4xl font-extrabold sm:text-6xl text-white tracking-widest"
               >
                 VIJATA
@@ -52,7 +73,7 @@ export default function Home() {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
                 className="mt-3 text-xs uppercase tracking-[0.6em] text-gradient-red font-semibold"
               >
                 Premium Estates
@@ -77,13 +98,17 @@ export default function Home() {
         <main className="flex-grow">
           <HeroSection />
           <AboutSection />
+          <FounderProfiles />
           <PropertiesCarousel />
+          <ProjectHighlights />
           <WhyChooseUs />
           <StatsSection />
           <TimelineSection />
           <GallerySection />
           <Testimonials />
+          <FAQSection />
           <ContactSection />
+          <LocationMapSection />
         </main>
         <Footer />
         <WhatsAppButton />

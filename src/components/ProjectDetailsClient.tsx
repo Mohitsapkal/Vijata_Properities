@@ -88,7 +88,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
     // Build inquiry message
     const formattedText = `Hello Vijata Properties,\n\nI am interested in *${project.name}*.\n\n*Inquiry Details:*\n- *Name:* ${formData.name}\n- *Phone:* ${formData.phone}\n- *Property Interest:* ${formData.interest}\n- *Preferred Visit Date:* ${formData.visitDate}\n\nPlease share the brochure, pricing details, and contact me to coordinate the site visit.`;
     
-    const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(formattedText)}`;
+    const waUrl = `https://wa.me/919823131416?text=${encodeURIComponent(formattedText)}`;
     
     // Redirect
     window.open(waUrl, "_blank");
@@ -150,7 +150,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
             {/* Quick Action CTAs */}
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="tel:+919876543210"
+                href="tel:+919823131416"
                 className="flex items-center justify-center gap-2.5 rounded-full bg-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-gray-900 shadow-md hover:scale-105 active:scale-95 transition-transform duration-300"
               >
                 <Phone className="h-4.5 w-4.5 text-primary-red" />
@@ -158,7 +158,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
               </a>
 
               <a
-                href={`https://wa.me/919876543210?text=Hello%20I%20am%20interested%20in%20${encodeURIComponent(project.name)}`}
+                href={`https://wa.me/919823131416?text=Hello%20I%20am%20interested%20in%20${encodeURIComponent(project.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 rounded-full bg-emerald-500 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md hover:scale-105 active:scale-95 transition-transform duration-300"

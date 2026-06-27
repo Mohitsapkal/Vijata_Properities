@@ -138,7 +138,7 @@ export default function ContactSection() {
       `*Property Type:* ${formData.type}\n` +
       `*Message:* ${formData.message}`;
 
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(compiledText)}`;
+    const whatsappUrl = `https://wa.me/919823131416?text=${encodeURIComponent(compiledText)}`;
     
     // Small delay to simulate local submission state change
     setTimeout(() => {
@@ -181,7 +181,7 @@ export default function ContactSection() {
                 <div>
                   <h5 className="font-bold text-gray-950 text-sm uppercase tracking-wider">Office Headquarters</h5>
                   <p className="mt-1 text-sm text-gray-600">
-                    Aurora Tower, Penthouse Level 42, Corporate Finance Hub
+                    Office No. 123 & 124, Golden City Center, Chhatrapati Sambhajinagar, Maharashtra 431003
                   </p>
                 </div>
               </div>
@@ -207,7 +207,7 @@ export default function ContactSection() {
                 <div>
                   <h5 className="font-bold text-gray-950 text-sm uppercase tracking-wider">Hotline Advisory</h5>
                   <p className="mt-1 text-sm text-gray-600 hover:text-primary-red transition-colors">
-                    +91 98765 43210
+                    +91 98231 31416
                   </p>
                 </div>
               </div>
@@ -272,7 +272,7 @@ export default function ContactSection() {
                     className={`w-full px-4 py-3 rounded-lg border bg-white text-sm outline-none transition-all focus:border-primary-red ${
                       errors.phone ? "border-red-500" : "border-gray-200"
                     }`}
-                    placeholder="e.g. +91 98765 43210"
+                    placeholder="e.g. +91 98231 31416"
                   />
                   {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
                 </div>

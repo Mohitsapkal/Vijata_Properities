@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -76,12 +77,21 @@ export default function Navbar() {
             <motion.a
               href={pathname === "/" ? "#home" : "/"}
               onClick={(e) => handleLinkClick(e, "#home")}
-              className="flex items-center gap-2"
+              className="flex items-center gap-3 group"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <span className="font-serif text-2xl font-extrabold tracking-wider">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/20 bg-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Vijata Properties"
+                  fill
+                  sizes="40px"
+                  className="object-contain p-0.5"
+                />
+              </div>
+              <span className="font-serif text-xl sm:text-2xl font-extrabold tracking-wider">
                 VIJATA <span className="text-gradient-red">PROPERTIES</span>
               </span>
             </motion.a>
@@ -162,7 +172,7 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <motion.a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919823131416"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 flex items-center justify-center gap-2 rounded-full bg-primary-red py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-xl hover:bg-red-700 active:scale-95"

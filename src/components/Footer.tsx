@@ -66,11 +66,11 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3 items-start">
                 <MapPin className="h-4.5 w-4.5 text-primary-red shrink-0 mt-0.5" />
-                <span>Aurora Tower, Penthouse Level 42, Corporate Finance Hub</span>
+                <span>Office No. 123 & 124, Golden City Center, Chhatrapati Sambhajinagar, Maharashtra 431003</span>
               </li>
               <li className="flex gap-3 items-center">
                 <Phone className="h-4.5 w-4.5 text-primary-red shrink-0" />
-                <span className="hover:text-primary-red transition-colors">+91 98765 43210</span>
+                <span className="hover:text-primary-red transition-colors">+91 98231 31416</span>
               </li>
               <li className="flex gap-3 items-center">
                 <Mail className="h-4.5 w-4.5 text-primary-red shrink-0" />

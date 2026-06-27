@@ -22,7 +22,7 @@ const stats = [
   },
   {
     value: 1.5,
-    suffix: "B+",
+    suffix: "Lac+",
     label: "Managed Transaction Value",
     isFloat: true,
   },

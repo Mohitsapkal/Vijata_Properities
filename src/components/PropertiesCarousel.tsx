@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, MessageCircle, MapPin, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MessageCircle, MapPin, ArrowRight, Phone } from "lucide-react";
 import { projects } from "@/data/projects";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -216,7 +216,7 @@ export default function PropertiesCarousel() {
     const message = encodeURIComponent(
       `Hello Vijata Properties, I am interested in inquiring about the project: "${projName}". Please share brochure and price details.`
     );
-    return `https://wa.me/919876543210?text=${message}`;
+    return `https://wa.me/919823131416?text=${message}`;
   };
 
   return (
@@ -335,8 +335,16 @@ export default function PropertiesCarousel() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 rounded-xl border border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white px-4 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300"
+                      aria-label={`WhatsApp enquiry for ${project.name}`}
                     >
                       <MessageCircle className="h-4.5 w-4.5" fill="currentColor" />
+                    </a>
+                    <a
+                      href="tel:+919823131416"
+                      className="flex items-center justify-center gap-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-950 hover:text-white hover:border-gray-950 px-4 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300"
+                      aria-label={`Call advisor for ${project.name}`}
+                    >
+                      <Phone className="h-4.5 w-4.5" />
                     </a>
                   </div>
                 </div>
