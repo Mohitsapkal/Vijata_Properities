@@ -43,7 +43,8 @@ export default function PropertiesCarousel() {
 
   const handlePan = (event: any, info: any) => {
     if (cardsToShow < projects.length) {
-      setDragOffset(info.offset.x);
+      // Damped offset (0.75) for a slower, smoother, more premium dragging gesture
+      setDragOffset(info.offset.x * 0.75);
     }
   };
 
@@ -122,7 +123,7 @@ export default function PropertiesCarousel() {
                 ? `calc(-${currentIndex * (100 / cardsToShow)}% + ${dragOffset}px)`
                 : `-${currentIndex * (100 / cardsToShow)}%`
             }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            transition={{ type: "spring", stiffness: 120, damping: 24 }}
             style={{ width: `${(projects.length / cardsToShow) * 100}%` }}
           >
             {projects.map((project) => (
