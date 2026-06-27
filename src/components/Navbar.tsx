@@ -97,13 +97,13 @@ export default function Navbar() {
             </motion.a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6 lg:gap-8 md:ml-auto md:mr-8 lg:mr-12">
+            <nav className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 md:ml-auto md:mr-4 lg:mr-8 xl:mr-12">
               {navLinks.map((link, idx) => (
                 <motion.a
                   key={link.name}
                   href={link.href.startsWith("/") || (link.href.startsWith("#") && pathname === "/") ? link.href : "/" + link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className={`text-sm font-medium tracking-wide uppercase transition-colors relative py-1 group ${
+                  className={`text-xs lg:text-sm font-semibold tracking-wider uppercase transition-colors relative py-1 group whitespace-nowrap ${
                     scrolled ? "text-gray-700 hover:text-primary-red" : "text-gray-200 hover:text-white"
                   }`}
                   initial={{ opacity: 0, y: -10 }}
