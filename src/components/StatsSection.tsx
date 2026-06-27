@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const stats = [
   {
@@ -29,31 +30,28 @@ const stats = [
 
 function Counter({ value, suffix, isFloat }: { value: number; suffix: string; isFloat?: boolean }) {
   const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (!isInView) return;
+    gsap.registerPlugin(ScrollTrigger);
 
-    let start = 0;
-    const end = value;
-    const duration = 1500; // milliseconds
-    const stepTime = 30; // ms
-    const steps = duration / stepTime;
-    const increment = (end - start) / steps;
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(start);
-      }
-    }, stepTime);
-
-    return () => clearInterval(timer);
-  }, [isInView, value]);
+    const obj = { val: 0 };
+    if (ref.current) {
+      gsap.to(obj, {
+        val: value,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+        onUpdate: () => {
+          setCount(obj.val);
+        },
+      });
+    }
+  }, [value]);
 
   return (
     <span ref={ref} className="font-serif text-5xl font-black tracking-tight text-white sm:text-6xl">
@@ -64,8 +62,34 @@ function Counter({ value, suffix, isFloat }: { value: number; suffix: string; is
 }
 
 export default function StatsSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (sectionRef.current) {
+      const cards = sectionRef.current.querySelectorAll(".stat-card");
+
+      gsap.fromTo(cards,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+  }, []);
+
   return (
-    <section className="relative bg-luxury-black py-24 sm:py-32 text-white overflow-hidden">
+    <section ref={sectionRef} className="relative bg-luxury-black py-24 sm:py-32 text-white overflow-hidden">
       {/* Background Decorative Mesh/Grids */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(200,16,46,0.1),transparent_70%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none" />
@@ -73,14 +97,10 @@ export default function StatsSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* Statistics Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16 text-center">
-          {stats.map((stat, idx) => (
-            <motion.div
+          {stats.map((stat) => (
+            <div
               key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="flex flex-col gap-4"
+              className="stat-card flex flex-col gap-4"
             >
               {/* Animated number */}
               <Counter value={stat.value} suffix={stat.suffix} isFloat={stat.isFloat} />
@@ -92,7 +112,7 @@ export default function StatsSection() {
               <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">
                 {stat.label}
               </span>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

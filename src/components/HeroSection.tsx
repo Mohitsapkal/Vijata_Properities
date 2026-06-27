@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { ArrowDown, MessageCircle, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -14,6 +13,7 @@ export default function HeroSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     
+    // Parallax background
     if (imageRef.current && containerRef.current) {
       gsap.to(imageRef.current, {
         yPercent: 20,
@@ -26,6 +26,37 @@ export default function HeroSection() {
           scrub: true,
         },
       });
+    }
+
+    // Entrance timeline
+    if (containerRef.current) {
+      const subtitle = containerRef.current.querySelector(".hero-subtitle");
+      const headline = containerRef.current.querySelector(".hero-title");
+      const subheadline = containerRef.current.querySelector(".hero-desc");
+      const ctas = containerRef.current.querySelector(".hero-ctas");
+      const scrollIndicator = containerRef.current.querySelector(".hero-scroll");
+
+      const tl = gsap.timeline();
+
+      if (subtitle) tl.fromTo(subtitle, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, 0.2);
+      if (headline) tl.fromTo(headline, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: "power4.out" }, 0.4);
+      if (subheadline) tl.fromTo(subheadline, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: "power4.out" }, 0.6);
+      if (ctas) tl.fromTo(ctas, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: "power4.out" }, 0.8);
+      if (scrollIndicator) {
+        tl.fromTo(scrollIndicator, { opacity: 0 }, { opacity: 0.7, duration: 1 }, 1.2);
+        
+        // Loop bounce animation using GSAP
+        const arrow = scrollIndicator.querySelector(".bounce-arrow");
+        if (arrow) {
+          gsap.to(arrow, {
+            y: 8,
+            duration: 0.75,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+          });
+        }
+      }
     }
   }, []);
 
@@ -67,45 +98,34 @@ export default function HeroSection() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 lg:px-8">
         <div className="max-w-3xl">
           {/* Subtitle */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-4 flex items-center gap-2"
-          >
+          <div className="hero-subtitle mb-4 flex items-center gap-2" style={{ opacity: 0 }}>
             <span className="h-0.5 w-12 bg-primary-red" />
             <span className="text-sm font-semibold uppercase tracking-widest text-primary-red">
               Introducing Vijata Properties
             </span>
-          </motion.div>
+          </div>
 
           {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
-            className="font-serif text-5xl font-extrabold leading-none tracking-tight sm:text-7xl"
+          <h1
+            className="hero-title font-serif text-5xl font-extrabold leading-none tracking-tight sm:text-7xl"
+            style={{ opacity: 0 }}
           >
             Building Dreams,<br />
             <span className="text-white">Creating Futures.</span>
-          </motion.h1>
+          </h1>
 
           {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
-            className="mt-6 text-lg leading-relaxed text-gray-300 sm:text-xl"
+          <p
+            className="hero-desc mt-6 text-lg leading-relaxed text-gray-300 sm:text-xl"
+            style={{ opacity: 0 }}
           >
             Premium Residential and Commercial Properties Tailored to Your Lifestyle. Elevate your living space with our handpicked portfolio of ultra-luxury estates.
-          </motion.p>
+          </p>
 
           {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
-            className="mt-10 flex flex-col sm:flex-row gap-4"
+          <div
+            className="hero-ctas mt-10 flex flex-col sm:flex-row gap-4"
+            style={{ opacity: 0 }}
           >
             {/* Explore properties button */}
             <button
@@ -126,16 +146,14 @@ export default function HeroSection() {
               <MessageCircle className="h-5 w-5 text-[#25D366] transition-transform duration-300 group-hover:rotate-12" fill="currentColor" />
               Chat on WhatsApp
             </a>
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Down Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity"
+      <div
+        className="hero-scroll absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer transition-opacity"
+        style={{ opacity: 0 }}
         onClick={() => {
           const aboutSection = document.querySelector("#about");
           if (aboutSection) {
@@ -144,13 +162,10 @@ export default function HeroSection() {
         }}
       >
         <span className="text-xs uppercase tracking-widest font-semibold">Scroll Down</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        >
+        <div className="bounce-arrow">
           <ArrowDown className="h-5 w-5 text-primary-red" />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

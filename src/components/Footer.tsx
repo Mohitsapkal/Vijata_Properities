@@ -2,7 +2,6 @@
 
 import React from "react";
 import { ArrowUp, Mail, Phone, MapPin, Globe } from "lucide-react";
-import { motion } from "framer-motion";
 
 export default function Footer() {
   const handleScrollTop = () => {

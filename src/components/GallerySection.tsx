@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const galleryItems = [
   {
@@ -36,35 +38,65 @@ const categories = ["All", "Villa", "Penthouse", "Commercial"];
 
 export default function GallerySection() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const filteredItems = galleryItems.filter(
     (item) => activeCategory === "All" || item.category === activeCategory
   );
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (sectionRef.current) {
+      // Header animations
+      const h2 = sectionRef.current.querySelector(".section-sub");
+      const h3 = sectionRef.current.querySelector(".section-title");
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      if (h2) tl.fromTo(h2, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6 });
+      if (h3) tl.fromTo(h3, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6 }, "-=0.4");
+
+      // Initial scroll reveal for gallery items
+      const items = sectionRef.current.querySelectorAll(".gallery-item-reveal");
+      if (items.length > 0) {
+        gsap.fromTo(items,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: items[0],
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    }
+  }, []);
+
   return (
-    <section id="gallery" className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
+    <section id="gallery" ref={sectionRef} className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header block */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div className="max-w-2xl">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-sm font-semibold uppercase tracking-widest text-primary-red"
-            >
+            <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-primary-red">
               Visual Showcase
-            </motion.h2>
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-4 font-serif text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
-            >
+            </h2>
+            <h3 className="section-title mt-4 font-serif text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               Gallery of Masterpieces
-            </motion.h3>
+            </h3>
           </div>
 
           {/* Filters List */}
@@ -96,7 +128,7 @@ export default function GallerySection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="relative h-[320px] sm:h-[400px] rounded-2xl overflow-hidden group shadow-md"
+                className="gallery-item-reveal relative h-[320px] sm:h-[400px] rounded-2xl overflow-hidden group shadow-md"
               >
                 {/* Property Image */}
                 <Image

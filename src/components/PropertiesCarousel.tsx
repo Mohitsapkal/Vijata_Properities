@@ -3,15 +3,21 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, MessageCircle, MapPin, Maximize2, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, MessageCircle, MapPin, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function PropertiesCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(1);
-  const [dragOffset, setDragOffset] = useState(0);
+  
+  const sectionRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  
+  const touchStartRef = useRef(0);
+  const isDraggingRef = useRef(false);
 
   // Responsiveness tracker for number of visible cards
   useEffect(() => {
@@ -29,6 +35,54 @@ export default function PropertiesCarousel() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // GSAP ScrollTrigger for section header entrance animation
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    if (sectionRef.current) {
+      const h2 = sectionRef.current.querySelector(".section-sub");
+      const h3 = sectionRef.current.querySelector(".section-title");
+      
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        }
+      });
+      
+      if (h2) {
+        tl.fromTo(h2, 
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+        );
+      }
+      
+      if (h3) {
+        tl.fromTo(h3,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+          "-=0.4"
+        );
+      }
+    }
+  }, []);
+
+  // Whenever currentIndex or cardsToShow changes, animate the track position
+  useEffect(() => {
+    if (!trackRef.current) return;
+    
+    const activeCard = trackRef.current.children[currentIndex] as HTMLElement;
+    if (activeCard) {
+      gsap.to(trackRef.current, {
+        x: -activeCard.offsetLeft,
+        duration: 0.6,
+        ease: "power2.out",
+        overwrite: "auto",
+      });
+    }
+  }, [currentIndex, cardsToShow]);
+
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex + cardsToShow >= projects.length ? prevIndex : prevIndex + 1
@@ -41,23 +95,121 @@ export default function PropertiesCarousel() {
     );
   };
 
-  const handlePan = (event: any, info: any) => {
-    if (cardsToShow < projects.length) {
-      // Damped offset (0.75) for a slower, smoother, more premium dragging gesture
-      setDragOffset(info.offset.x * 0.75);
+  // Dragging resistance calculations for elastic edge-hit feel
+  const getDampedDiff = (diffX: number) => {
+    const isAtStart = currentIndex === 0;
+    const isAtEnd = currentIndex + cardsToShow >= projects.length;
+    if (isAtStart && diffX > 0) {
+      return diffX * 0.25;
+    }
+    if (isAtEnd && diffX < 0) {
+      return diffX * 0.25;
+    }
+    return diffX;
+  };
+
+  // Touch Handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartRef.current = e.touches[0].pageX;
+    isDraggingRef.current = true;
+    if (trackRef.current) {
+      gsap.killTweensOf(trackRef.current);
     }
   };
 
-  const handlePanEnd = (event: any, info: any) => {
-    if (cardsToShow < projects.length) {
-      const swipeThreshold = 50;
-      if (info.offset.x < -swipeThreshold) {
-        nextSlide();
-      } else if (info.offset.x > swipeThreshold) {
-        prevSlide();
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDraggingRef.current) return;
+    const currentX = e.touches[0].pageX;
+    const diffX = currentX - touchStartRef.current;
+    const dampedDiff = getDampedDiff(diffX);
+    
+    if (trackRef.current) {
+      const activeCard = trackRef.current.children[currentIndex] as HTMLElement;
+      if (activeCard) {
+        gsap.set(trackRef.current, {
+          x: -activeCard.offsetLeft + dampedDiff,
+        });
       }
     }
-    setDragOffset(0);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    
+    const finalX = e.changedTouches[0].pageX;
+    const diffX = finalX - touchStartRef.current;
+    
+    const swipeThreshold = 60;
+    if (diffX < -swipeThreshold && currentIndex + cardsToShow < projects.length) {
+      nextSlide();
+    } else if (diffX > swipeThreshold && currentIndex > 0) {
+      prevSlide();
+    } else {
+      // Bounce back to active slide if threshold not met
+      if (trackRef.current) {
+        const activeCard = trackRef.current.children[currentIndex] as HTMLElement;
+        if (activeCard) {
+          gsap.to(trackRef.current, {
+            x: -activeCard.offsetLeft,
+            duration: 0.5,
+            ease: "back.out(1.2)",
+          });
+        }
+      }
+    }
+  };
+
+  // Mouse Handlers (Enabling Desktop dragging as well)
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (e.button !== 0) return; // Left click only
+    touchStartRef.current = e.pageX;
+    isDraggingRef.current = true;
+    if (trackRef.current) {
+      gsap.killTweensOf(trackRef.current);
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingRef.current) return;
+    const currentX = e.pageX;
+    const diffX = currentX - touchStartRef.current;
+    const dampedDiff = getDampedDiff(diffX);
+    
+    if (trackRef.current) {
+      const activeCard = trackRef.current.children[currentIndex] as HTMLElement;
+      if (activeCard) {
+        gsap.set(trackRef.current, {
+          x: -activeCard.offsetLeft + dampedDiff,
+        });
+      }
+    }
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    
+    const finalX = e.pageX;
+    const diffX = finalX - touchStartRef.current;
+    
+    const swipeThreshold = 60;
+    if (diffX < -swipeThreshold && currentIndex + cardsToShow < projects.length) {
+      nextSlide();
+    } else if (diffX > swipeThreshold && currentIndex > 0) {
+      prevSlide();
+    } else {
+      if (trackRef.current) {
+        const activeCard = trackRef.current.children[currentIndex] as HTMLElement;
+        if (activeCard) {
+          gsap.to(trackRef.current, {
+            x: -activeCard.offsetLeft,
+            duration: 0.5,
+            ease: "back.out(1.2)",
+          });
+        }
+      }
+    }
   };
 
   const getWhatsAppLink = (projName: string) => {
@@ -68,29 +220,17 @@ export default function PropertiesCarousel() {
   };
 
   return (
-    <section id="properties" className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
+    <section id="properties" ref={sectionRef} className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header Block */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16">
           <div className="max-w-2xl">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-sm font-semibold uppercase tracking-widest text-primary-red"
-            >
+            <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-primary-red">
               Featured Portfolio
-            </motion.h2>
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-4 font-serif text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
-            >
+            </h2>
+            <h3 className="section-title mt-4 font-serif text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               Featured Landmark Developments
-            </motion.h3>
+            </h3>
           </div>
           
           {/* Navigation Buttons */}
@@ -115,27 +255,30 @@ export default function PropertiesCarousel() {
         </div>
 
         {/* Carousel Tracks */}
-        <div className="relative overflow-hidden" ref={carouselRef}>
-          <motion.div
-            className="flex gap-6 cursor-grab active:cursor-grabbing touch-pan-y"
-            onPan={handlePan}
-            onPanEnd={handlePanEnd}
-            animate={{
-              x: dragOffset !== 0
-                ? `calc(-${currentIndex * (100 / cardsToShow)}% + ${dragOffset}px)`
-                : `-${currentIndex * (100 / cardsToShow)}%`
-            }}
-            transition={{ type: "spring", stiffness: 120, damping: 24 }}
+        <div 
+          className="relative overflow-hidden cursor-grab active:cursor-grabbing select-none" 
+          ref={carouselRef}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+        >
+          <div
+            ref={trackRef}
+            className="flex gap-6 touch-pan-y"
             style={{ width: `${(projects.length / cardsToShow) * 100}%` }}
           >
             {projects.map((project) => (
               <div
                 key={project.slug}
                 style={{ width: `calc(${100 / projects.length}% - 1.25rem)` }}
-                className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 flex flex-col group h-full"
+                className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 flex flex-col group h-full select-none"
               >
                 {/* Image Section */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden">
+                <div className="relative h-64 sm:h-72 w-full overflow-hidden pointer-events-none">
                   <Image
                     src={project.images.hero}
                     alt={project.name}
@@ -199,7 +342,7 @@ export default function PropertiesCarousel() {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

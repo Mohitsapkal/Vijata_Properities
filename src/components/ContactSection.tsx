@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -21,6 +22,68 @@ export default function ContactSection() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (sectionRef.current) {
+      // Header animations
+      const h2 = sectionRef.current.querySelector(".section-sub");
+      const h3 = sectionRef.current.querySelector(".section-title");
+      const line = sectionRef.current.querySelector(".section-line");
+
+      const tlHeader = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      if (h2) tlHeader.fromTo(h2, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6 });
+      if (h3) tlHeader.fromTo(h3, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6 }, "-=0.4");
+      if (line) tlHeader.fromTo(line, { width: 0 }, { width: "80px", duration: 0.8 }, "-=0.3");
+
+      // Columns animations
+      const leftCol = sectionRef.current.querySelector(".contact-left");
+      const rightCol = sectionRef.current.querySelector(".contact-right");
+
+      if (leftCol) {
+        gsap.fromTo(leftCol,
+          { opacity: 0, x: -30 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: leftCol,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      if (rightCol) {
+        gsap.fromTo(rightCol,
+          { opacity: 0, x: 30 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: rightCol,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    }
+  }, []);
 
   const validate = () => {
     let isValid = true;
@@ -85,47 +148,23 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative bg-white py-24 sm:py-32 text-gray-900 overflow-hidden">
+    <section id="contact" ref={sectionRef} className="relative bg-white py-24 sm:py-32 text-gray-900 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header Block */}
         <div className="mx-auto max-w-3xl text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-sm font-semibold uppercase tracking-widest text-primary-red"
-          >
+          <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-primary-red">
             Inquire Now
-          </motion.h2>
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 font-serif text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl"
-          >
+          </h2>
+          <h3 className="section-title mt-4 font-serif text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl">
             Begin Your Luxury Journey
-          </motion.h3>
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "80px" }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="h-1 bg-primary-red mx-auto mt-6"
-          />
+          </h3>
+          <div className="section-line h-1 bg-primary-red mx-auto mt-6" style={{ width: 0 }} />
         </div>
 
         {/* Contact Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           {/* Left Column: Contact details */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-5 space-y-10"
-          >
+          <div className="contact-left lg:col-span-5 space-y-10">
             <div>
               <h4 className="font-serif text-2xl font-bold text-gray-950">Get in Touch</h4>
               <p className="mt-4 text-sm text-gray-600 leading-relaxed">
@@ -173,16 +212,10 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7 bg-gray-50 rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-sm"
-          >
+          <div className="contact-right lg:col-span-7 bg-gray-50 rounded-2xl p-8 sm:p-10 border border-gray-100 shadow-sm">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Name */}
@@ -299,7 +332,7 @@ export default function ContactSection() {
                 )}
               </button>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

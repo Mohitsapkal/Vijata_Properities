@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { MessageSquare, Eye, FileText, CheckCircle2 } from "lucide-react";
-import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const steps = [
   {
@@ -32,36 +33,77 @@ const steps = [
 ];
 
 export default function TimelineSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (sectionRef.current) {
+      // Header animations
+      const h2 = sectionRef.current.querySelector(".section-sub");
+      const h3 = sectionRef.current.querySelector(".section-title");
+      const line = sectionRef.current.querySelector(".section-line");
+
+      const tlHeader = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      if (h2) tlHeader.fromTo(h2, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6 });
+      if (h3) tlHeader.fromTo(h3, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6 }, "-=0.4");
+      if (line) tlHeader.fromTo(line, { width: 0 }, { width: "80px", duration: 0.8 }, "-=0.3");
+
+      // Timeline rows animations
+      const rows = sectionRef.current.querySelectorAll(".timeline-row");
+      rows.forEach((row) => {
+        const cards = row.querySelectorAll(".timeline-card");
+        const node = row.querySelector(".timeline-node");
+
+        const tlRow = gsap.timeline({
+          scrollTrigger: {
+            trigger: row,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+
+        cards.forEach((card) => {
+          const isLeft = card.classList.contains("slide-left");
+          const startX = isLeft ? -40 : 40;
+
+          tlRow.fromTo(card,
+            { opacity: 0, x: startX },
+            { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
+            0
+          );
+        });
+
+        if (node) {
+          tlRow.fromTo(node,
+            { scale: 0 },
+            { scale: 1, duration: 0.6, ease: "back.out(1.7)" },
+            "-=0.5"
+          );
+        }
+      });
+    }
+  }, []);
+
   return (
-    <section id="process" className="relative bg-white py-24 sm:py-32 text-gray-900 overflow-hidden">
+    <section id="process" ref={sectionRef} className="relative bg-white py-24 sm:py-32 text-gray-900 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header Block */}
         <div className="mx-auto max-w-3xl text-center mb-24">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-sm font-semibold uppercase tracking-widest text-primary-red"
-          >
+          <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-primary-red">
             The Acquisition Journey
-          </motion.h2>
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 font-serif text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl"
-          >
+          </h2>
+          <h3 className="section-title mt-4 font-serif text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl">
             How We Secure Your Dreams
-          </motion.h3>
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "80px" }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="h-1 bg-primary-red mx-auto mt-6"
-          />
+          </h3>
+          <div className="section-line h-1 bg-primary-red mx-auto mt-6" style={{ width: 0 }} />
         </div>
 
         {/* Timeline Path */}
@@ -76,47 +118,35 @@ export default function TimelineSection() {
               const isEven = idx % 2 === 0;
               
               return (
-                <div key={step.number} className="flex flex-col lg:flex-row items-center justify-between">
+                <div key={step.number} className="timeline-row flex flex-col lg:flex-row items-center justify-between">
                   {/* Left Column (Content or Empty depending on odd/even) */}
                   <div className={`w-full lg:w-[45%] flex ${isEven ? "justify-end text-right" : "justify-start text-left order-last lg:order-none"}`}>
-                    <motion.div
-                      initial={{ opacity: 0, x: isEven ? -40 : 40 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
-                      className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm max-w-md w-full"
+                    <div
+                      className={`timeline-card bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm max-w-md w-full ${isEven ? "slide-left" : "slide-right"}`}
                     >
                       <span className="font-serif text-5xl font-black text-primary-red/10 block mb-2">{step.number}</span>
                       <h4 className="text-xl font-bold font-serif text-gray-950 mb-3">{step.title}</h4>
                       <p className="text-sm text-gray-600 leading-relaxed">{step.desc}</p>
-                    </motion.div>
+                    </div>
                   </div>
 
                   {/* Central Node Circle */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
-                    className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-primary-red text-white shadow-lg border-4 border-white my-6 lg:my-0"
+                  <div
+                    className="timeline-node relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-primary-red text-white shadow-lg border-4 border-white my-6 lg:my-0"
                   >
                     <Icon className="h-6 w-6" />
-                  </motion.div>
+                  </div>
 
                   {/* Right Column (Content or Empty depending on odd/even) */}
                   <div className={`w-full lg:w-[45%] flex ${!isEven ? "justify-start text-left" : "justify-end text-right hidden lg:flex"}`}>
                     {!isEven ? (
-                      <motion.div
-                        initial={{ opacity: 0, x: 40 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm max-w-md w-full"
+                      <div
+                        className="timeline-card slide-right bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm max-w-md w-full"
                       >
                         <span className="font-serif text-5xl font-black text-primary-red/10 block mb-2">{step.number}</span>
                         <h4 className="text-xl font-bold font-serif text-gray-950 mb-3">{step.title}</h4>
                         <p className="text-sm text-gray-600 leading-relaxed">{step.desc}</p>
-                      </motion.div>
+                      </div>
                     ) : (
                       // Placeholder space for symmetry
                       <div className="w-full max-w-md" />
