@@ -119,7 +119,7 @@ export default function AboutSection() {
             {/* Main Image */}
             <div className="absolute inset-0 w-4/5 h-[85%] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/prop_penthouse.png"
+                src="/images/prop_penthouse.jpg"
                 alt="Penthouse Living Room"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -129,7 +129,7 @@ export default function AboutSection() {
             {/* Secondary Floating Image */}
             <div className="absolute bottom-0 right-0 w-3/5 h-[50%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <Image
-                src="/images/prop_villa.png"
+                src="/images/prop_villa.jpg"
                 alt="Minimalist Ibiza Villa"
                 fill
                 sizes="(max-width: 768px) 100vw, 30vw"

@@ -12,19 +12,19 @@ const galleryItems = [
     id: "g1",
     title: "The Royal Heights Residency",
     category: "Penthouse",
-    image: "/images/prop_penthouse.png",
+    image: "/images/prop_penthouse.jpg",
   },
   {
     id: "g2",
     title: "Orchard Luxury Villa",
     category: "Villa",
-    image: "/images/prop_villa.png",
+    image: "/images/prop_villa.jpg",
   },
   {
     id: "g3",
     title: "Vijeta Commercial Center",
     category: "Commercial",
-    image: "/images/prop_commercial.png",
+    image: "/images/prop_commerical.jpg",
   },
   {
     id: "g4",
