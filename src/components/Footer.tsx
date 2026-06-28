@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ArrowUp, Mail, Phone, MapPin, Globe } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   const handleScrollTop = () => {
@@ -19,9 +20,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 sm:gap-16 pb-12 border-b border-white/5">
           {/* Logo & Intro */}
           <div className="lg:col-span-5 space-y-6">
-            <span className="font-serif text-2xl font-extrabold tracking-wider text-white">
-              VIJETA <span className="text-gradient-red">PROPERTIES</span>
-            </span>
+            <div className="flex items-center gap-3">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10 bg-white flex-shrink-0">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Vijeta Properties"
+                  fill
+                  sizes="40px"
+                  className="object-contain p-0.5"
+                />
+              </div>
+              <span className="font-serif text-2xl font-extrabold tracking-wider text-white">
+                VIJETA <span className="text-gradient-red">PROPERTIES</span>
+              </span>
+            </div>
             <p className="text-sm leading-relaxed text-gray-400 max-w-md">
               Crafting premium architectural futures and securing trusted, luxury estates since 2010. Your dream lifestyle, curated by elite experts.
             </p>
@@ -67,6 +79,13 @@ export default function Footer() {
               <li className="flex gap-3 items-start">
                 <MapPin className="h-4.5 w-4.5 text-primary-red shrink-0 mt-0.5" />
                 <span>Office No. 123 & 124, Golden City Center, Chhatrapati Sambhajinagar, Maharashtra 431003</span>
+              </li>
+              
+              <li className="h-2" /> {/* One line space */}
+              
+              <li className="flex gap-3 items-center">
+                <Globe className="h-4.5 w-4.5 text-primary-red shrink-0" />
+                <span className="hover:text-primary-red transition-colors">vijetaproperties.com</span>
               </li>
               <li className="flex gap-3 items-center">
                 <Phone className="h-4.5 w-4.5 text-primary-red shrink-0" />
