@@ -155,7 +155,7 @@ export default function HeroSection() {
       {/* Parallax Background Image */}
       <div ref={imageRef} className="absolute inset-0 h-[120%] w-full -top-[10%]">
         <Image
-          src="/images/hero_mansion.png"
+          src="/images/Hero_mansion.jpg"
           alt="Premium Luxury Mansion"
           fill
           priority
@@ -223,72 +223,72 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: 3D Collage (Hidden on smaller screens, shown on desktop) */}
-          <div className="hidden lg:block lg:col-span-5 relative h-[550px] w-full">
+          {/* Right Column: 3D Collage (Shown on mobile under text, and on desktop as split) */}
+          <div className="lg:col-span-5 relative h-[380px] sm:h-[480px] lg:h-[550px] w-full mt-8 lg:mt-0">
             
             {/* Card 1: Villa */}
             <div 
               ref={cardVillaRef} 
-              className="absolute top-[8%] left-[2%] w-[58%] h-[240px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10 z-20 group transition-transform duration-500 hover:scale-105 hover:z-40"
+              className="absolute top-[5%] sm:top-[8%] left-[2%] w-[55%] sm:w-[58%] h-[180px] sm:h-[240px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10 z-20 group transition-transform duration-500 hover:scale-105 hover:z-40"
               style={{ opacity: 0 }}
             >
               <Image 
                 src="/images/prop_villa.jpg" 
                 alt="Luxury Villa" 
                 fill 
-                sizes="(max-width: 1024px) 100vw, 30vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 30vw, 20vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-75 group-hover:opacity-90 transition-opacity duration-300" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="inline-block bg-primary-red/80 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-white mb-1">
+              <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
+                <span className="inline-block bg-primary-red/80 backdrop-blur-md px-2 py-0.5 rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-white mb-1">
                   Residences
                 </span>
-                <p className="font-serif text-sm font-bold text-white">Elite Township Villas</p>
+                <p className="font-serif text-xs sm:text-sm font-bold text-white">Elite Township Villas</p>
               </div>
             </div>
 
             {/* Card 2: Penthouse */}
             <div 
               ref={cardPenthouseRef} 
-              className="absolute top-[28%] right-[2%] w-[58%] h-[220px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10 z-30 group transition-transform duration-500 hover:scale-105 hover:z-40"
+              className="absolute top-[24%] sm:top-[28%] right-[2%] w-[55%] sm:w-[58%] h-[160px] sm:h-[220px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10 z-30 group transition-transform duration-500 hover:scale-105 hover:z-40"
               style={{ opacity: 0 }}
             >
               <Image 
                 src="/images/prop_penthouse.jpg" 
                 alt="Luxury Penthouse" 
                 fill 
-                sizes="(max-width: 1024px) 100vw, 30vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 30vw, 20vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-75 group-hover:opacity-90 transition-opacity duration-300" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="inline-block bg-primary-red/80 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-white mb-1">
+              <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
+                <span className="inline-block bg-primary-red/80 backdrop-blur-md px-2 py-0.5 rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-white mb-1">
                   Penthouses
                 </span>
-                <p className="font-serif text-sm font-bold text-white">Luxury Skyline Suites</p>
+                <p className="font-serif text-xs sm:text-sm font-bold text-white">Luxury Skyline Suites</p>
               </div>
             </div>
 
             {/* Card 3: Commercial */}
             <div 
               ref={cardCommercialRef} 
-              className="absolute bottom-[6%] left-[12%] w-[55%] h-[200px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10 z-10 group transition-transform duration-500 hover:scale-105 hover:z-40"
+              className="absolute bottom-[4%] sm:bottom-[6%] left-[10%] sm:left-[12%] w-[50%] sm:w-[55%] h-[140px] sm:h-[200px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10 z-10 group transition-transform duration-500 hover:scale-105 hover:z-40"
               style={{ opacity: 0 }}
             >
               <Image 
                 src="/images/prop_commerical.jpg" 
                 alt="Commercial Hub" 
                 fill 
-                sizes="(max-width: 1024px) 100vw, 30vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 30vw, 20vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-75 group-hover:opacity-90 transition-opacity duration-300" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="inline-block bg-primary-red/80 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-white mb-1">
+              <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
+                <span className="inline-block bg-primary-red/80 backdrop-blur-md px-2 py-0.5 rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-white mb-1">
                   Commercial
                 </span>
-                <p className="font-serif text-sm font-bold text-white">Vijeta Commercial Center</p>
+                <p className="font-serif text-xs sm:text-sm font-bold text-white">Vijeta Commercial Center</p>
               </div>
             </div>
 
