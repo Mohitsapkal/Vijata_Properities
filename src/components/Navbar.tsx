@@ -96,40 +96,42 @@ export default function Navbar() {
               </span>
             </motion.a>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 md:ml-auto md:mr-4 lg:mr-8 xl:mr-12">
-              {navLinks.map((link, idx) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href.startsWith("/") || (link.href.startsWith("#") && pathname === "/") ? link.href : "/" + link.href}
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                  className={`text-xs lg:text-sm font-semibold tracking-wider uppercase transition-colors relative py-1 group whitespace-nowrap ${
-                    scrolled ? "text-gray-700 hover:text-primary-red" : "text-gray-200 hover:text-white"
-                  }`}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
-                >
-                  {link.name}
-                  {/* Underline Slide Effect */}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-red transition-all duration-300 group-hover:w-full" />
-                </motion.a>
-              ))}
-            </nav>
+            {/* Desktop Navigation & CTA Group */}
+            <div className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10">
+              <nav className="flex items-center gap-4 lg:gap-6 xl:gap-8">
+                {navLinks.map((link, idx) => (
+                  <motion.a
+                    key={link.name}
+                    href={link.href.startsWith("/") || (link.href.startsWith("#") && pathname === "/") ? link.href : "/" + link.href}
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    className={`text-xs lg:text-sm font-semibold tracking-wider uppercase transition-colors relative py-1 group whitespace-nowrap ${
+                      scrolled ? "text-gray-700 hover:text-primary-red" : "text-gray-200 hover:text-white"
+                    }`}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+                  >
+                    {link.name}
+                    {/* Underline Slide Effect */}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-red transition-all duration-300 group-hover:w-full" />
+                  </motion.a>
+                ))}
+              </nav>
 
-            {/* Action CTA */}
-            <div className="hidden lg:flex items-center">
-              <motion.a
-                href="#contact"
-                onClick={(e) => handleLinkClick(e, "#contact")}
-                className="flex items-center gap-2 rounded-full bg-primary-red px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-red-700 active:scale-95"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-              >
-                Inquire Now
-                <ArrowRight className="h-4.5 w-4.5" />
-              </motion.a>
+              {/* Action CTA */}
+              <div className="hidden lg:flex items-center">
+                <motion.a
+                  href="#contact"
+                  onClick={(e) => handleLinkClick(e, "#contact")}
+                  className="flex items-center gap-2 rounded-full bg-primary-red px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-red-700 active:scale-95"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                  Inquire Now
+                  <ArrowRight className="h-4.5 w-4.5" />
+                </motion.a>
+              </div>
             </div>
 
             {/* Mobile Hamburger Button */}
