@@ -108,7 +108,7 @@ export default function FounderProfiles() {
                 </p>
 
                 <p className="mt-4 text-sm text-gray-400 leading-relaxed">
-                  With a deep-rooted passion for real estate and unwavering commitment to transparency, Ratnakar Khilare founded Vijata Properties with a mission to make premium, trust-backed land ownership accessible to every family. His visionary leadership and deep knowledge of NA plot regulations, urban planning corridors, and customer-centric development has helped thousands of families secure their dream properties across Chhatrapati Sambhajinagar.
+                  With a deep-rooted passion for real estate and unwavering commitment to transparency, Ratnakar Khilare founded Vijeta Properties with a mission to make premium, trust-backed land ownership accessible to every family. His visionary leadership and deep knowledge of NA plot regulations, urban planning corridors, and customer-centric development has helped thousands of families secure their dream properties across Chhatrapati Sambhajinagar.
                 </p>
 
                 {/* Social Links */}
@@ -121,7 +121,7 @@ export default function FounderProfiles() {
                     <Globe className="h-4 w-4" />
                   </a>
                   <a
-                    href="mailto:concierge@vijataproperties.com"
+                    href="mailto:concierge@vijetaproperties.com"
                     className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 hover:bg-primary-red hover:text-white hover:border-primary-red transition-all duration-300"
                     aria-label="Ratnakar Khilare Email"
                   >

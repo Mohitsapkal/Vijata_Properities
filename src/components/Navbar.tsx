@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About Us", href: "#about" },
   { name: "Projects", href: "/projects" }, // Rename to Projects
-  { name: "Why Vijata", href: "#why-choose-us" },
+  { name: "Why Vijeta", href: "#why-choose-us" },
   { name: "Our Process", href: "#process" },
   { name: "Gallery", href: "#gallery" },
   { name: "Contact", href: "#contact" },
@@ -85,14 +85,14 @@ export default function Navbar() {
               <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/20 bg-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
                 <Image
                   src="/images/logo.jpg"
-                  alt="Vijata Properties"
+                  alt="Vijeta Properties"
                   fill
                   sizes="40px"
                   className="object-contain p-0.5"
                 />
               </div>
               <span className="font-serif text-xl sm:text-2xl font-extrabold tracking-wider">
-                VIJATA <span className="text-gradient-red">PROPERTIES</span>
+                VIJETA <span className="text-gradient-red">PROPERTIES</span>
               </span>
             </motion.a>
 

@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Logo & Intro */}
           <div className="lg:col-span-5 space-y-6">
             <span className="font-serif text-2xl font-extrabold tracking-wider text-white">
-              VIJATA <span className="text-gradient-red">PROPERTIES</span>
+              VIJETA <span className="text-gradient-red">PROPERTIES</span>
             </span>
             <p className="text-sm leading-relaxed text-gray-400 max-w-md">
               Crafting premium architectural futures and securing trusted, luxury estates since 2010. Your dream lifestyle, curated by elite experts.
@@ -47,7 +47,7 @@ export default function Footer() {
                 { name: "Home", href: "#home" },
                 { name: "About Us", href: "#about" },
                 { name: "Properties", href: "#properties" },
-                { name: "Why Vijata", href: "#why-choose-us" },
+                { name: "Why Vijeta", href: "#why-choose-us" },
                 { name: "Our Process", href: "#process" },
                 { name: "Gallery", href: "#gallery" },
               ].map((link) => (
@@ -74,7 +74,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 items-center">
                 <Mail className="h-4.5 w-4.5 text-primary-red shrink-0" />
-                <span className="hover:text-primary-red transition-colors">concierge@vijataproperties.com</span>
+                <span className="hover:text-primary-red transition-colors">concierge@vijetaproperties.com</span>
               </li>
             </ul>
           </div>
@@ -82,7 +82,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between pt-12 text-xs text-gray-500 gap-6">
-          <p>© {new Date().getFullYear()} Vijata Properties. All rights reserved. Built for Trust & Luxury.</p>
+          <p>© {new Date().getFullYear()} Vijeta Properties. All rights reserved. Built for Trust & Luxury.</p>
           
           {/* Scroll to Top */}
           <button

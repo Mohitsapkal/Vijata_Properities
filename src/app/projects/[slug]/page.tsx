@@ -13,13 +13,13 @@ export async function generateMetadata({ params }: PageProps) {
   
   if (!project) {
     return {
-      title: "Project Not Found | Vijata Properties",
+      title: "Project Not Found | Vijeta Properties",
       description: "The requested project could not be found."
     };
   }
 
   return {
-    title: `${project.name} - Premium ${project.type} | Vijata Properties`,
+    title: `${project.name} - Premium ${project.type} | Vijeta Properties`,
     description: `Explore ${project.name} in ${project.location}. Premium real estate plots and township living starting at ${project.price}. clean titles and gated security.`,
     alternates: {
       canonical: `/projects/${project.slug}`

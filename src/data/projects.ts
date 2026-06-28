@@ -24,24 +24,24 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "ample-adhyam-residency",
-    name: "Ample Adhyam Residency",
+    slug: "ample-adwayam-residency",
+    name: "Ample Adwayam Residency",
     location: "Beed Bypass Road, Zalta, Chhatrapati Sambhajinagar",
     type: "Residential",
     status: "Available",
     price: "₹45 Lakhs",
-    description: "Ample Adhyam Residency is an elite residential development designed for upscale living. Set in a fast-growing tech corridor, this development combines cutting-edge architecture with massive open spaces, premium clubhouses, and robust security, making it the perfect setting for families seeking comfort and a premium neighborhood.",
+    description: "Ample Adwayam Residency is an elite residential development designed for upscale living. Set in a fast-growing tech corridor, this development combines cutting-edge architecture with massive open spaces, premium clubhouses, and robust security, making it the perfect setting for families seeking comfort and a premium neighborhood.",
     brochureUrl: "/brochure/AMPLE .pdf",
     images: {
-      hero: "/extracted/ample-adhyam-residency/hero.png",
-      masterPlan: "/extracted/ample-adhyam-residency/master-plan.png",
-      amenitiesMap: "/extracted/ample-adhyam-residency/amenities-map.png",
-      locationMap: "/extracted/ample-adhyam-residency/location-map.png",
+      hero: "/extracted/ample-adwayam-residency/hero.png",
+      masterPlan: "/extracted/ample-adwayam-residency/master-plan.png",
+      amenitiesMap: "/extracted/ample-adwayam-residency/amenities-map.png",
+      locationMap: "/extracted/ample-adwayam-residency/location-map.png",
       gallery: [
-        "/extracted/ample-adhyam-residency/gate.png",
-        "/extracted/ample-adhyam-residency/playground.png",
-        "/extracted/ample-adhyam-residency/temple.png",
-        "/extracted/ample-adhyam-residency/roads.png"
+        "/extracted/ample-adwayam-residency/gate.png",
+        "/extracted/ample-adwayam-residency/playground.png",
+        "/extracted/ample-adwayam-residency/temple.png",
+        "/extracted/ample-adwayam-residency/roads.png"
       ]
     },
     highlights: [

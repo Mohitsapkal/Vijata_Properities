@@ -86,7 +86,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
     if (!validateForm()) return;
 
     // Build inquiry message
-    const formattedText = `Hello Vijata Properties,\n\nI am interested in *${project.name}*.\n\n*Inquiry Details:*\n- *Name:* ${formData.name}\n- *Phone:* ${formData.phone}\n- *Property Interest:* ${formData.interest}\n- *Preferred Visit Date:* ${formData.visitDate}\n\nPlease share the brochure, pricing details, and contact me to coordinate the site visit.`;
+    const formattedText = `Hello Vijeta Properties,\n\nI am interested in *${project.name}*.\n\n*Inquiry Details:*\n- *Name:* ${formData.name}\n- *Phone:* ${formData.phone}\n- *Property Interest:* ${formData.interest}\n- *Preferred Visit Date:* ${formData.visitDate}\n\nPlease share the brochure, pricing details, and contact me to coordinate the site visit.`;
     
     const waUrl = `https://wa.me/919823131416?text=${encodeURIComponent(formattedText)}`;
     

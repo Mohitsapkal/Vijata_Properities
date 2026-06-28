@@ -214,7 +214,7 @@ export default function PropertiesCarousel() {
 
   const getWhatsAppLink = (projName: string) => {
     const message = encodeURIComponent(
-      `Hello Vijata Properties, I am interested in inquiring about the project: "${projName}". Please share brochure and price details.`
+      `Hello Vijeta Properties, I am interested in inquiring about the project: "${projName}". Please share brochure and price details.`
     );
     return `https://wa.me/919823131416?text=${message}`;
   };

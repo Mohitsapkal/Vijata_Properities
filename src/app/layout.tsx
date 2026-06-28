@@ -15,13 +15,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Vijata Properties | Premium Residential & Commercial Real Estate",
-  description: "Experience luxury living with Vijata Properties. Browse our curated collection of premium residential villas, penthouses, and high-end commercial spaces designed to suit your lifestyle.",
-  keywords: ["luxury homes", "premium real estate", "villas", "penthouses", "commercial spaces", "Vijata Properties"],
-  authors: [{ name: "Vijata Properties" }],
+  title: "Vijeta Properties | Premium Residential & Commercial Real Estate",
+  description: "Experience luxury living with Vijeta Properties. Browse our curated collection of premium residential villas, penthouses, and high-end commercial spaces designed to suit your lifestyle.",
+  keywords: ["luxury homes", "premium real estate", "villas", "penthouses", "commercial spaces", "Vijeta Properties"],
+  authors: [{ name: "Vijeta Properties" }],
   openGraph: {
-    title: "Vijata Properties | Premium Residential & Commercial Real Estate",
-    description: "Experience luxury living with Vijata Properties. Browse our curated collection of premium residential villas, penthouses, and high-end commercial spaces.",
+    title: "Vijeta Properties | Premium Residential & Commercial Real Estate",
+    description: "Experience luxury living with Vijeta Properties. Browse our curated collection of premium residential villas, penthouses, and high-end commercial spaces.",
     type: "website",
     locale: "en_US",
   },

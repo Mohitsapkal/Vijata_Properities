@@ -22,13 +22,13 @@ const galleryItems = [
   },
   {
     id: "g3",
-    title: "Vijata Commercial Center",
+    title: "Vijeta Commercial Center",
     category: "Commercial",
     image: "/images/prop_commercial.png",
   },
   {
     id: "g4",
-    title: "Vijata Premium NA Plots",
+    title: "Vijeta Premium NA Plots",
     category: "Plots",
     image: "/images/prop_plot.png",
   },

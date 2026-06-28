@@ -7,17 +7,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const testimonials = [
   {
-    quote: "Vijata Properties completely redefined our home buying experience. Their private concierge advisory and absolute integrity in the documentation phase gave us complete confidence. Truly a world-class team.",
+    quote: "Vijeta Properties completely redefined our home buying experience. Their private concierge advisory and absolute integrity in the documentation phase gave us complete confidence. Truly a world-class team.",
     author: "Rajesh & Meera Sharma",
-    role: "Owners, Ample Adhyam Residency",
+    role: "Owners, Ample Adwayam Residency",
   },
   {
-    quote: "Finding a clear title villa plot with a secure buying process is challenging, but Vijata made it effortless. Their client-first support model is outstanding.",
+    quote: "Finding a clear title villa plot with a secure buying process is challenging, but Vijeta made it effortless. Their client-first support model is outstanding.",
     author: "Dr. Anil Deshmukh",
     role: "Director, Deshmukh Hospitals",
   },
   {
-    quote: "For our commercial headquarters, we required a real estate partner that understands local layout approvals and appreciation trends. Vijata delivered a premium strategy that met our exact specifications.",
+    quote: "For our commercial headquarters, we required a real estate partner that understands local layout approvals and appreciation trends. Vijeta delivered a premium strategy that met our exact specifications.",
     author: "Vikram Malhotra",
     role: "Managing Director, Malhotra Group",
   },

@@ -7,9 +7,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const faqs = [
   {
-    question: "What types of plots and properties does Vijata Properties offer?",
+    question: "What types of plots and properties does Vijeta Properties offer?",
     answer:
-      "Vijata Properties offers a curated portfolio of NA-approved residential plots, township villa plots, and premium commercial spaces across Chhatrapati Sambhajinagar. All properties feature modern infrastructure including tar/concrete roads, underground drainage, street lighting, and gated security.",
+      "Vijeta Properties offers a curated portfolio of NA-approved residential plots, township villa plots, and premium commercial spaces across Chhatrapati Sambhajinagar. All properties feature modern infrastructure including tar/concrete roads, underground drainage, street lighting, and gated security.",
   },
   {
     question: "Are the plots NA approved and ready for construction?",
@@ -32,7 +32,7 @@ const faqs = [
       "The process is simple: (1) Select your preferred plot after a site visit, (2) Pay the booking amount to reserve, (3) Complete KYC documentation, (4) Execute the sale agreement, and (5) Complete registration at the Sub-Registrar office. Our team handles the entire paperwork end-to-end.",
   },
   {
-    question: "What amenities are included in Vijata Properties projects?",
+    question: "What amenities are included in Vijeta Properties projects?",
     answer:
       "Our projects feature premium amenities including grand entry gates with security cabins, community temples, children's play areas, jogging/walking tracks, landscaped gardens, wide internal roads (9m+), underground drainage, individual water connections, LED street lighting, and 24/7 security surveillance.",
   },
@@ -202,7 +202,7 @@ export default function FAQSection() {
           <p className="text-sm text-gray-500">
             Still have questions?{" "}
             <a
-              href="https://wa.me/919823131416?text=Hi%2C%20I%20have%20a%20question%20about%20Vijata%20Properties"
+              href="https://wa.me/919823131416?text=Hi%2C%20I%20have%20a%20question%20about%20Vijeta%20Properties"
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold text-primary-red hover:underline"

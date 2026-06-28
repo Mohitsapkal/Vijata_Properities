@@ -52,7 +52,7 @@ export default function Home() {
               >
                 <Image
                   src="/images/logo.jpg"
-                  alt="Vijata Logo"
+                  alt="Vijeta Logo"
                   fill
                   sizes="96px"
                   className="object-contain p-1"
@@ -66,7 +66,7 @@ export default function Home() {
                 transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
                 className="font-serif text-4xl font-extrabold sm:text-6xl text-white tracking-widest"
               >
-                VIJATA
+                VIJETA
               </motion.h1>
               
               {/* Subtitle */}

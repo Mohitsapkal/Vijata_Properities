@@ -104,7 +104,7 @@ export default function AboutSection() {
         {/* Title Block */}
         <div className="mx-auto max-w-3xl text-center mb-20">
           <h2 className="section-sub text-sm font-semibold uppercase tracking-widest text-gradient-red">
-            About Vijata Properties
+            About Vijeta Properties
           </h2>
           <h3 className="section-title mt-4 font-serif text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl">
             Pioneering Luxury & Trusted Real Estate Solutions
@@ -145,7 +145,7 @@ export default function AboutSection() {
           {/* Right Side: Text & Key Points */}
           <div className="flex flex-col justify-center">
             <p className="content-text text-lg leading-relaxed text-gray-700 mb-8">
-              For over a decade, Vijata Properties has remained a distinguished name in luxury real estate, matching elite clients with exceptional properties. We understand that a home is more than structure—it represents an legacy, lifestyle, and sanctuary.
+              For over a decade, Vijeta Properties has remained a distinguished name in luxury real estate, matching elite clients with exceptional properties. We understand that a home is more than structure—it represents an legacy, lifestyle, and sanctuary.
             </p>
 
             {/* List of Features */}

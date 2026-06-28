@@ -133,7 +133,7 @@ export default function LocationMapSection() {
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Vijata Properties Office</h4>
+                  <h4 className="text-sm font-bold text-white">Vijeta Properties Office</h4>
                   <p className="text-xs text-gray-400 mt-1">
                     Office No. 123 & 124, Golden City Center,<br />
                     Chhatrapati Sambhajinagar, Maharashtra 431003

@@ -131,7 +131,7 @@ export default function ContactSection() {
 
     setIsSubmitting(true);
 
-    const compiledText = `*Vijata Properties Inquiry*\n\n` +
+    const compiledText = `*Vijeta Properties Inquiry*\n\n` +
       `*Name:* ${formData.name}\n` +
       `*Email:* ${formData.email}\n` +
       `*Phone:* ${formData.phone}\n` +
@@ -194,7 +194,7 @@ export default function ContactSection() {
                 <div>
                   <h5 className="font-bold text-gray-950 text-sm uppercase tracking-wider">Email Advisory</h5>
                   <p className="mt-1 text-sm text-gray-600 hover:text-primary-red transition-colors">
-                    concierge@vijataproperties.com
+                    concierge@vijetaproperties.com
                   </p>
                 </div>
               </div>

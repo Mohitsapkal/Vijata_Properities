@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
   const phoneNumber = "919823131416";
   
   // Dynamic message template based on active route
-  let text = "Hi Vijata Properties, I am interested in exploring your premium residential and commercial properties. Please share more details.";
+  let text = "Hi Vijeta Properties, I am interested in exploring your premium residential and commercial properties. Please share more details.";
   
   if (pathname && pathname.startsWith("/projects/")) {
     const slug = pathname.replace("/projects/", "");

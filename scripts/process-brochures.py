@@ -6,7 +6,7 @@ from PIL import Image
 PROJECTS = [
     {
         "pdf": "AMPLE .pdf",
-        "slug": "ample-adhyam-residency",
+        "slug": "ample-adwayam-residency",
         "is_portrait": False,
     },
     {

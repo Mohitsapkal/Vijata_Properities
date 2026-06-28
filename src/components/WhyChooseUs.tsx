@@ -83,7 +83,7 @@ export default function WhyChooseUs() {
             Our Core Pillars
           </h2>
           <h3 className="section-title mt-4 font-serif text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl">
-            Why Choose Vijata Properties
+            Why Choose Vijeta Properties
           </h3>
           <div className="section-line h-1 bg-primary-red mx-auto mt-6" style={{ width: 0 }} />
         </div>
