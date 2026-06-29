@@ -108,84 +108,112 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
       <Navbar />
 
       {/* 1. Cinematic Hero Section */}
-      <section className="relative h-screen w-full flex items-center justify-center bg-black overflow-hidden">
+      <section className="relative min-h-screen w-full flex items-center justify-center bg-gray-950 overflow-hidden pt-28 pb-16 lg:pt-0 lg:pb-0">
+        {/* Blurred Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src={project.images.hero}
-            alt={project.name}
+            alt={`${project.name} background`}
             fill
             priority
-            className="object-cover opacity-60 scale-100"
+            className="object-cover opacity-40 blur-2xl scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-black/40 to-black/75 z-10" />
+          <div className="absolute inset-0 bg-black/60 z-10" />
         </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto w-full px-6 py-32 lg:px-8 text-white pt-24">
-          <div className="max-w-3xl">
-            {/* Project Category Tag */}
-            <div className="flex items-center gap-2 mb-4">
-              <span className="h-0.5 w-12 bg-primary-red animate-pulse" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-gradient-red">
-                {project.type} • {project.status}
-              </span>
-            </div>
-
-            {/* Title Reveal */}
-            <h1 className="font-serif text-5xl sm:text-7xl font-extrabold leading-none tracking-tight">
-              {project.name}
-            </h1>
-
-            {/* Location & Starting Price */}
-            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-lg sm:text-xl text-gray-200">
-              <div className="flex items-center gap-2">
-                <MapPin className="h-5 w-5 text-primary-red" />
-                <span>{project.location}</span>
+        <div className="relative z-20 max-w-7xl mx-auto w-full px-6 lg:px-8">
+          <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
+            
+            {/* Left Side: Text Content */}
+            <motion.div 
+              className="w-full lg:w-1/2 text-white flex flex-col justify-center"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              {/* Project Category Tag */}
+              <div className="flex items-center gap-2 mb-4">
+                <span className="h-0.5 w-12 bg-primary-red animate-pulse" />
+                <span className="text-sm font-semibold uppercase tracking-widest text-gradient-red">
+                  {project.type} • {project.status}
+                </span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-400">Starting From:</span>
-                <span className="font-extrabold text-primary-red">{project.price}</span>
+
+              {/* Title Reveal */}
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+                {project.name}
+              </h1>
+
+              {/* Location & Starting Price */}
+              <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-base sm:text-lg text-gray-200">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-5 w-5 text-primary-red shrink-0" />
+                  <span>{project.location}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-400">Starting From:</span>
+                  <span className="font-extrabold text-primary-red">{project.price}</span>
+                </div>
               </div>
-            </div>
 
-            {/* Quick Action CTAs */}
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="tel:+919823131416"
-                className="flex items-center justify-center gap-2.5 rounded-full bg-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-gray-900 shadow-md hover:scale-105 active:scale-95 transition-transform duration-300"
-              >
-                <Phone className="h-4.5 w-4.5 text-primary-red" />
-                Call Advisor
-              </a>
+              {/* Quick Action CTAs */}
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a
+                  href="tel:+919823131416"
+                  className="flex items-center justify-center gap-2.5 rounded-full bg-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-gray-900 shadow-md hover:scale-105 active:scale-95 transition-transform duration-300"
+                >
+                  <Phone className="h-4.5 w-4.5 text-primary-red" />
+                  Call Advisor
+                </a>
 
-              <a
-                href={`https://wa.me/919823131416?text=Hello%20I%20am%20interested%20in%20${encodeURIComponent(project.name)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 rounded-full bg-emerald-500 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md hover:scale-105 active:scale-95 transition-transform duration-300"
-              >
-                <MessageCircle className="h-4.5 w-4.5" fill="currentColor" />
-                WhatsApp inquiry
-              </a>
+                <a
+                  href={`https://wa.me/919823131416?text=Hello%20I%20am%20interested%20in%20${encodeURIComponent(project.name)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2.5 rounded-full bg-emerald-500 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md hover:scale-105 active:scale-95 transition-transform duration-300"
+                >
+                  <MessageCircle className="h-4.5 w-4.5" fill="currentColor" />
+                  WhatsApp Inquiry
+                </a>
 
-              <a
-                href={project.brochureUrl}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm hover:bg-white hover:text-gray-900 transition-colors duration-300"
-              >
-                <Download className="h-4.5 w-4.5" />
-                Brochure PDF
-              </a>
+                <a
+                  href={project.brochureUrl}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm hover:bg-white hover:text-gray-900 transition-colors duration-300"
+                >
+                  <Download className="h-4.5 w-4.5" />
+                  Brochure PDF
+                </a>
 
-              <button
-                onClick={() => document.querySelector("#inquiry-section")?.scrollIntoView({ behavior: "smooth" })}
-                className="flex items-center justify-center gap-2.5 rounded-full bg-primary-red px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-700 transition-colors duration-300"
-              >
-                <Calendar className="h-4.5 w-4.5" />
-                Book Site Visit
-              </button>
-            </div>
+                <button
+                  onClick={() => document.querySelector("#inquiry-section")?.scrollIntoView({ behavior: "smooth" })}
+                  className="flex items-center justify-center gap-2.5 rounded-full bg-primary-red px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-700 transition-colors duration-300"
+                >
+                  <Calendar className="h-4.5 w-4.5" />
+                  Book Site Visit
+                </button>
+              </div>
+            </motion.div>
+
+            {/* Right Side: Framed Image */}
+            <motion.div 
+              className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-8 lg:mt-0"
+              initial={{ opacity: 0, scale: 0.95, x: 30 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <div className="w-full max-w-[90%] sm:max-w-md lg:max-w-lg rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl relative bg-black/40">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.images.hero}
+                  alt={project.name}
+                  className="w-full h-auto object-contain hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>

@@ -55,6 +55,7 @@ export default function Home() {
                   alt="Vijeta Logo"
                   fill
                   sizes="96px"
+                  priority
                   className="object-contain p-1"
                 />
               </motion.div>

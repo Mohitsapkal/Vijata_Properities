@@ -88,6 +88,7 @@ export default function Navbar() {
                   alt="Vijeta Properties"
                   fill
                   sizes="40px"
+                  priority
                   className="object-contain p-0.5"
                 />
               </div>
