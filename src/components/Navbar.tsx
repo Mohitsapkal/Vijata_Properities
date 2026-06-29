@@ -89,6 +89,7 @@ export default function Navbar() {
                   fill
                   sizes="40px"
                   priority
+                  loading="eager"
                   className="object-contain p-0.5"
                 />
               </div>

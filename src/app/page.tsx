@@ -56,6 +56,7 @@ export default function Home() {
                   fill
                   sizes="96px"
                   priority
+                  loading="eager"
                   className="object-contain p-1"
                 />
               </motion.div>

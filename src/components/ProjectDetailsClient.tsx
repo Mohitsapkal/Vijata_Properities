@@ -51,7 +51,7 @@ interface ProjectDetailsClientProps {
 
 export default function ProjectDetailsClient({ project }: ProjectDetailsClientProps) {
   // State management
-  const [zoomMasterPlan, setZoomMasterPlan] = useState(false);
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -259,33 +259,58 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
             </div>
           </section>
 
-          {/* 4. Master Layout Plan */}
+          {/* 4. Master Layout & Location Plans */}
           <section id="master-plan" className="scroll-mt-32">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-gray-950">
-              Master Layout Plan
+              Master & Location Plans
             </h2>
             <div className="mt-2 w-16 h-1 bg-primary-red" />
             <p className="mt-4 text-sm text-gray-500">
-              Interactive Zoom Mode: Click on the image below to inspect layout plans in high resolution.
+              Interactive Zoom Mode: Click on the images below to inspect layout and location plans in high resolution.
             </p>
 
-            <div
-              onClick={() => setZoomMasterPlan(true)}
-              className="mt-6 relative h-96 sm:h-[480px] w-full rounded-3xl overflow-hidden border border-gray-100 shadow-sm cursor-zoom-in group"
-            >
-              <Image
-                src={project.images.masterPlan}
-                alt="Master Layout Plan"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-103"
-              />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                <div className="bg-white/95 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-900 shadow-md flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                  <Maximize2 className="h-4 w-4 text-primary-red" />
-                  Expand Master Plan
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Master Plan */}
+              <div
+                onClick={() => setZoomedImage(project.images.masterPlan)}
+                className="relative h-96 sm:h-[480px] w-full rounded-3xl overflow-hidden border border-gray-100 shadow-sm cursor-zoom-in group"
+              >
+                <Image
+                  src={project.images.masterPlan}
+                  alt="Master Layout Plan"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-103"
+                />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                  <div className="bg-white/95 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-900 shadow-md flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                    <Maximize2 className="h-4 w-4 text-primary-red" />
+                    Expand Master Plan
+                  </div>
                 </div>
               </div>
+
+              {/* Location Plan */}
+              {project.images.locationMap && (
+                <div
+                  onClick={() => setZoomedImage(project.images.locationMap)}
+                  className="relative h-96 sm:h-[480px] w-full rounded-3xl overflow-hidden border border-gray-100 shadow-sm cursor-zoom-in group"
+                >
+                  <Image
+                    src={project.images.locationMap}
+                    alt="Location Plan"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-103"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-white/95 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-900 shadow-md flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                      <Maximize2 className="h-4 w-4 text-primary-red" />
+                      Expand Location Plan
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
 
@@ -550,18 +575,18 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
         </div>
       </div>
 
-      {/* Zoomable Master Plan Modal */}
+      {/* Zoomable Plan Modal */}
       <AnimatePresence>
-        {zoomMasterPlan && (
+        {zoomedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 cursor-zoom-out"
-            onClick={() => setZoomMasterPlan(false)}
+            onClick={() => setZoomedImage(null)}
           >
             <button
-              onClick={() => setZoomMasterPlan(false)}
+              onClick={() => setZoomedImage(null)}
               className="absolute top-6 right-6 text-white hover:text-primary-red bg-white/10 p-2.5 rounded-full transition-colors cursor-pointer"
               aria-label="Close modal"
             >
@@ -576,10 +601,10 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={project.images.masterPlan}
-                alt="Zoomed Master Layout Plan"
+                src={zoomedImage}
+                alt="Zoomed Plan"
                 fill
-                sizes="100vw"
+                sizes="(max-width: 1024px) 100vw, 1024px"
                 className="object-contain"
               />
             </motion.div>
@@ -616,7 +641,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
                 src={project.images.gallery[lightboxIndex]}
                 alt={`Lightbox image ${lightboxIndex + 1}`}
                 fill
-                sizes="100vw"
+                sizes="(max-width: 1024px) 100vw, 1024px"
                 className="object-contain"
               />
             </motion.div>
