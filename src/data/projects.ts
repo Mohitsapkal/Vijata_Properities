@@ -94,8 +94,8 @@ export const projects: Project[] = [
       locationMap: "/extracted/vc-ora-park/location-map.png",
       gallery: [
         "/extracted/vc-ora-park/gate.png",
-        "/extracted/vc-ora-park/playground.png",
-        "/extracted/vc-ora-park/temple.png",
+        "/extracted/vc-ora-park/wall-compond.png",
+        "/extracted/vc-ora-park/street-lights.png",
         "/extracted/vc-ora-park/roads.png"
       ]
     },
