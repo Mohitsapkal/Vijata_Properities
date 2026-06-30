@@ -280,7 +280,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
                   alt="Master Layout Plan"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-103"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                   <div className="bg-white/95 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-900 shadow-md flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
@@ -301,7 +301,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
                     alt="Location Plan"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-103"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                     <div className="bg-white/95 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-900 shadow-md flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
