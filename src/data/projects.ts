@@ -150,7 +150,7 @@ export const projects: Project[] = [
       gallery: [
         "/extracted/hindustan-residency/gate.png",
         "/extracted/hindustan-residency/playground.png",
-        "/extracted/hindustan-residency/temple.png",
+        "/extracted/hindustan-residency/street-lights.png",
         "/extracted/hindustan-residency/roads.png"
       ]
     },

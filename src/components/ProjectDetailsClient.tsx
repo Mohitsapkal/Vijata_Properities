@@ -204,7 +204,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              <div className="w-full max-w-[90%] sm:max-w-md lg:max-w-lg rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl relative bg-black/40">
+              <div className={`w-full ${project.slug === 'hindustan-residency' ? 'max-w-[95%] sm:max-w-lg lg:max-w-xl' : 'max-w-[90%] sm:max-w-md lg:max-w-lg'} rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl relative bg-black/40`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={project.images.hero}
