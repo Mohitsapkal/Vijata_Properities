@@ -185,7 +185,7 @@ export const projects: Project[] = [
       { name: "Bidkin Bus Stand", distance: "2.2 km" },
       { name: "Chhatrapati Sambhajinagar Bypass", distance: "8.0 km" }
     ],
-    videoUrl: "/videos/hindustan (3).mp4",
+    videoUrl: "/videos/hindustan.mp4",
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30058.07722646215!2d75.29367746816578!3d19.658933207860485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb89953d61b369%3A0x6b4421b7df026d37!2sBidkin%2C%20Maharashtra%20431105!5e0!3m2!1sen!2sin!4v1655900200000!5m2!1sen!2sin"
   }
 ];
