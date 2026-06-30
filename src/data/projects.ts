@@ -238,11 +238,11 @@ export const projects: Project[] = [
   {
     slug: "radha-nawal-city",
     name: "Radha Nawal City",
-    location: "Chhatrapati Sambhajinagar",
+    location: "Paithan Road - Walmi Naka Bajaj Gate Parisar, Waladgaon, Chhatrapati Sambhajinagar",
     type: "Township",
     status: "Coming Soon",
     price: "Price on Request",
-    description: "Radha Nawal City is an ambitious township project offering world-class amenities and a serene living environment.",
+    description: "A grand township of residential N.A. 44 fully facilitated plots spread across 20 acres. Located in the rapidly developing area near Bidkin DMIC, Waluj Mahanagar, and Paithan Road (adjacent to the highway from Walmi Naka to Bajaj Gate), featuring a 100 feet road-touch layout.",
     brochureUrl: "/brochure/RADHA NAWAL CITY BROCHURE.pdf",
     images: {
       hero: "/extracted/radha-nawal-city/hero.png",
@@ -251,18 +251,18 @@ export const projects: Project[] = [
       locationMap: "/extracted/radha-nawal-city/location-map.png",
       gallery: [
         "/extracted/radha-nawal-city/gate.png",
-        "/extracted/radha-nawal-city/playground.png",
+        "/extracted/radha-nawal-city/plot.png",
         "/extracted/radha-nawal-city/street-lights.png",
-        "/extracted/radha-nawal-city/roads.png"
+        "/extracted/radha-nawal-city/water-line.png"
       ]
     },
     highlights: [
-      "Premium Township",
-      "Gated Community",
-      "Wide Internal Roads",
-      "24/7 Security",
-      "Water Supply",
-      "Electricity Connection"
+      "20 Acre Grand Township",
+      "100 Feet Road Touch",
+      "N.A. 44 Residential Plots",
+      "All Basic Amenities Provided",
+      "Near Bidkin DMIC & Waluj Mahanagar",
+      "Site: Gat No. 79, 80 & 82 Waladgaon"
     ],
     amenities: [
       { name: "Entry Gate with Security Cabin", icon: "Shield" },
@@ -275,21 +275,22 @@ export const projects: Project[] = [
       { plotNo: "Plot-2", area: "1,200 Sq Ft", price: "On Request", status: "Available" }
     ],
     landmarks: [
-      { name: "City Center", distance: "5.0 km" },
-      { name: "Local Hospital", distance: "2.0 km" },
-      { name: "School", distance: "1.5 km" }
+      { name: "Walmi Naka", distance: "Nearby" },
+      { name: "Bajaj Gate", distance: "Nearby" },
+      { name: "Bidkin DMIC", distance: "Fast Developing Area" },
+      { name: "Waluj Mahanagar", distance: "Accessible" }
     ],
     videoUrl: "",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15011.66699313627!2d75.37895392683935!3d19.8434685002573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb9942d93e110b%3A0xc34cc59aa59f13c2!2sZalta%2C%20Maharashtra%20431007!5e0!3m2!1sen!2sin!4v1655900000000!5m2!1sen!2sin"
+    mapEmbedUrl: "https://maps.google.com/maps?q=Waladgaon,%20Paithan%20Road,%20Chhatrapati%20Sambhajinagar&t=&z=13&ie=UTF8&iwloc=&output=embed"
   },
   {
     slug: "vyanktesh-nagar",
     name: "Vyanktesh Nagar",
-    location: "Chhatrapati Sambhajinagar",
+    location: "Gat No. 89, Krishnapurwadi, Sawangi-Harsul, Chhatrapati Sambhajinagar",
     type: "NA Plots",
     status: "Coming Soon",
     price: "Price on Request",
-    description: "Vyanktesh Nagar provides prime NA plots suitable for constructing your dream independent home in a well-planned community.",
+    description: "Vyanktesh Nagar provides prime NA plots suitable for constructing your dream independent home in a well-planned community. Situated in the developing Sawangi-Harsul area.",
     brochureUrl: "/brochure/VYANKTESH NAGAR BROCHURE - 04 05 2026.pdf",
     images: {
       hero: "/extracted/vyanktesh-nagar/hero.png",
@@ -322,21 +323,20 @@ export const projects: Project[] = [
       { plotNo: "Plot-2", area: "1,200 Sq Ft", price: "On Request", status: "Available" }
     ],
     landmarks: [
-      { name: "City Center", distance: "5.0 km" },
-      { name: "Local Hospital", distance: "2.0 km" },
-      { name: "School", distance: "1.5 km" }
+      { name: "Sawangi-Harsul Area", distance: "Nearby" },
+      { name: "Krishnapurwadi", distance: "Nearby" }
     ],
     videoUrl: "",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15011.66699313627!2d75.37895392683935!3d19.8434685002573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb9942d93e110b%3A0xc34cc59aa59f13c2!2sZalta%2C%20Maharashtra%20431007!5e0!3m2!1sen!2sin!4v1655900000000!5m2!1sen!2sin"
+    mapEmbedUrl: "https://maps.google.com/maps?q=Krishnapurwadi,%20Sawangi-Harsul,%20Chhatrapati%20Sambhajinagar&t=&z=13&ie=UTF8&iwloc=&output=embed"
   },
   {
     slug: "vyanktesh-park",
     name: "Vyanktesh Park",
-    location: "Gat No. 10, Tisgaon, Waluj Mahanagar Parisar, Chhatrapati Sambhajinagar",
+    location: "Gat No. 89, Krishnapurwadi, Sawangi-Harsul, Jalgaon Road, Chhatrapati Sambhajinagar",
     type: "Township",
     status: "Coming Soon",
     price: "Price on Request",
-    description: "Vyanktesh Park is a grand township offering NA-44 plots in the highly demanded A.S. Club area, Waluj Mahanagar Parisar. It is conveniently located near the Chhatrapati Sambhajinagar - Nagar Pune Highway, providing excellent connectivity.",
+    description: "Vyanktesh Park is a grand 19-acre township offering CIDCO approved N.A.-44 residential plots. It is conveniently located just 300 meters from the Jalgaon Highway in the Harsul-Sawangi Tolnaka area.",
     brochureUrl: "/brochure/VYANKTESH PARK BROCHURE - 04 05 2026.pdf",
     images: {
       hero: "/extracted/vyanktesh-park/hero.png",
@@ -351,11 +351,11 @@ export const projects: Project[] = [
       ]
     },
     highlights: [
-      "NA-44 Plots",
-      "Grand Township",
-      "Near A.S. Club",
-      "Highway Connectivity",
+      "CIDCO N.A.-44 Approved",
+      "19 Acre Grand Township",
+      "300m from Jalgaon Highway",
       "Wide Internal Roads",
+      "All Basic Amenities Provided",
       "24/7 Security"
     ],
     amenities: [
@@ -369,11 +369,10 @@ export const projects: Project[] = [
       { plotNo: "Plot-2", area: "1,200 Sq Ft", price: "On Request", status: "Available" }
     ],
     landmarks: [
-      { name: "A.S. Club", distance: "Nearby" },
-      { name: "Nagar Pune Highway", distance: "Connected" },
-      { name: "Waluj Mahanagar", distance: "Within Area" }
+      { name: "Jalgaon Highway", distance: "300 m" },
+      { name: "Harsul-Sawangi Tolnaka", distance: "Nearby" }
     ],
     videoUrl: "",
-    mapEmbedUrl: "https://maps.google.com/maps?q=Tisgaon,%20Waluj%20Mahanagar,%20Chhatrapati%20Sambhajinagar&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    mapEmbedUrl: "https://maps.google.com/maps?q=Krishnapurwadi,%20Sawangi-Harsul,%20Chhatrapati%20Sambhajinagar&t=&z=13&ie=UTF8&iwloc=&output=embed"
   }
 ];
