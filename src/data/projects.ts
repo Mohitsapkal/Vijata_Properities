@@ -130,7 +130,7 @@ export const projects: Project[] = [
       { name: "Cambridge High School", distance: "1.8 km" },
       { name: "Chhatrapati Sambhajinagar Airport", distance: "5.5 km" }
     ],
-    videoUrl: "", // No video uploaded yet
+    videoUrl: "https://youtube.com/shorts/IQ85yqhbUoc", // Placeholder YouTube link
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15011.66699313627!2d75.37895392683935!3d19.8434685002573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb9942d93e110b%3A0xc34cc59aa59f13c2!2sZalta%2C%20Maharashtra%20431007!5e0!3m2!1sen!2sin!4v1655900000000!5m2!1sen!2sin"
   },
   {
@@ -185,7 +185,7 @@ export const projects: Project[] = [
       { name: "Bidkin Bus Stand", distance: "2.2 km" },
       { name: "Chhatrapati Sambhajinagar Bypass", distance: "8.0 km" }
     ],
-    videoUrl: "/videos/hindustan.mp4",
+    videoUrl: "https://youtu.be/ZDHts4A-v6o", // Placeholder YouTube link
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30058.07722646215!2d75.29367746816578!3d19.658933207860485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb89953d61b369%3A0x6b4421b7df026d37!2sBidkin%2C%20Maharashtra%20431105!5e0!3m2!1sen!2sin!4v1655900200000!5m2!1sen!2sin"
   },
   {

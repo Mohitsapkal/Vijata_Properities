@@ -62,6 +62,23 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
   });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
+  const getEmbedUrl = (url: string) => {
+    if (url.includes('/embed/')) return url;
+    if (url.includes('shorts/')) {
+      const id = url.split('shorts/')[1]?.split('?')[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    if (url.includes('youtu.be/')) {
+      const id = url.split('youtu.be/')[1]?.split('?')[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    if (url.includes('v=')) {
+      const id = url.split('v=')[1]?.split('&')[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    return url;
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -348,13 +365,23 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
               <div className="mt-2 w-16 h-1 bg-primary-red" />
               
               <div className="mt-6 relative rounded-3xl overflow-hidden shadow-lg aspect-video bg-black border border-gray-900">
-                <video
-                  src={project.videoUrl}
-                  controls
-                  preload="metadata"
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-contain"
-                />
+                {project.videoUrl.includes('youtube.com') || project.videoUrl.includes('youtu.be') ? (
+                  <iframe
+                    src={getEmbedUrl(project.videoUrl)}
+                    title={`${project.name} Video Showcase`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full border-0"
+                  ></iframe>
+                ) : (
+                  <video
+                    src={project.videoUrl}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-contain"
+                  />
+                )}
               </div>
             </section>
           )}
