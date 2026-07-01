@@ -8,7 +8,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import FounderProfiles from "@/components/FounderProfiles";
 import PropertiesCarousel from "@/components/PropertiesCarousel";
-import ProjectHighlights from "@/components/ProjectHighlights";
+
 import WhyChooseUs from "@/components/WhyChooseUs";
 import StatsSection from "@/components/StatsSection";
 import TimelineSection from "@/components/TimelineSection";
@@ -102,7 +102,7 @@ export default function Home() {
           <AboutSection />
           <FounderProfiles />
           <PropertiesCarousel />
-          <ProjectHighlights />
+
           <WhyChooseUs />
           <StatsSection />
           <TimelineSection />

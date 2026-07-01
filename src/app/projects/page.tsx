@@ -53,7 +53,7 @@ export default function ProjectsShowcase() {
       <section className="relative h-[65vh] min-h-[450px] w-full flex items-center justify-center bg-black overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero_mansion.png"
+            src="/images/Hero_mansion.jpg"
             alt="Mansion Header"
             fill
             priority

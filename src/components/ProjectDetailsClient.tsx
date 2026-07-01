@@ -424,46 +424,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
             </div>
           </section>
 
-          {/* 9. Pricing & Plot Information */}
-          <section id="pricing" className="scroll-mt-32">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-gray-950">
-              Pricing & Area Inventory
-            </h2>
-            <div className="mt-2 w-16 h-1 bg-primary-red" />
-            
-            <div className="mt-6 overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
-              <table className="min-w-full divide-y divide-gray-200 text-left">
-                <thead className="bg-gray-50 text-xs font-bold uppercase tracking-widest text-gray-500">
-                  <tr>
-                    <th className="px-6 py-4">Plot / Unit</th>
-                    <th className="px-6 py-4">Area Statement</th>
-                    <th className="px-6 py-4">Base Pricing</th>
-                    <th className="px-6 py-4">Status</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 text-sm">
-                  {project.pricingTable.map((row) => (
-                    <tr key={row.plotNo} className="hover:bg-gray-50/50">
-                      <td className="px-6 py-4 font-bold text-gray-900">{row.plotNo}</td>
-                      <td className="px-6 py-4 text-gray-600">{row.area}</td>
-                      <td className="px-6 py-4 font-extrabold text-primary-red">{row.price}</td>
-                      <td className="px-6 py-4">
-                        <span className={`inline-flex px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                          row.status === "Available"
-                            ? "bg-emerald-50 text-emerald-700"
-                            : row.status === "Reserved"
-                            ? "bg-amber-50 text-amber-700"
-                            : "bg-gray-50 text-gray-500"
-                        }`}>
-                          {row.status}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
+
         </div>
 
         {/* 10. Sticky Inquiry Form */}
