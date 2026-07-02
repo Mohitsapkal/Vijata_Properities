@@ -79,7 +79,7 @@ export default function Footer() {
             <h5 className="font-bold text-white text-xs uppercase tracking-widest">Contact Advisory</h5>
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3 items-start">
-                <MapPin className="h-4.5 w-4.5 text-primary-red shrink-0 mt-0.5" />
+                <MapPin className="h-4.5 w-4.5 text-primary-red shrink-0 mt-0.5" /> 
                 <span>Office No. 123 & 124, Golden City Center, Chhatrapati Sambhajinagar, Maharashtra 431003</span>
               </li>
               
@@ -95,7 +95,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 items-center">
                 <Mail className="h-4.5 w-4.5 text-primary-red shrink-0" />
-                <span className="hover:text-primary-red transition-colors">concierge@vijetaproperties.com</span>
+                <span className="hover:text-primary-red transition-colors"><a href="https://vardoxstudio.com">Designed By :- vardoxstudio.com</a></span>
               </li>
             </ul>
           </div>

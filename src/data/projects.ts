@@ -29,7 +29,7 @@ export const projects: Project[] = [
     location: "Beed Bypass Road, Zalta, Chhatrapati Sambhajinagar",
     type: "Residential",
     status: "Available",
-    price: "₹45 Lakhs",
+    price: "₹25 Lakhs",
     description: "Ample Adwayam Residency is an elite residential development designed for upscale living. Set in a fast-growing tech corridor, this development combines cutting-edge architecture with massive open spaces, premium clubhouses, and robust security, making it the perfect setting for families seeking comfort and a premium neighborhood.",
     brochureUrl: "/brochure/AMPLE .pdf",
     images: {
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     location: "Zalta Phata, Beed Bypass, Chhatrapati Sambhajinagar",
     type: "Township",
     status: "Available",
-    price: "₹85 Lakhs",
+    price: "₹45 Lakhs",
     description: "VC Ora Park is a master-planned lifestyle township set amidst the pristine hills. Designed for those who value privacy, serenity, and active community living, the property features panoramic valleys, individual villa plots, organic agricultural gardens, and a grand community temple. Ideal as a secondary vacation residence or a permanent peaceful haven.",
     brochureUrl: "/brochure/V C ORA BROCHURE.pdf",
     images: {
@@ -139,7 +139,7 @@ export const projects: Project[] = [
     location: "Paithan Road, Bidkin DMIC, Chhatrapati Sambhajinagar",
     type: "NA Plots",
     status: "Available",
-    price: "₹30 Lakhs",
+    price: "₹8 Lakhs",
     description: "Hindustan Residency offers premium collector NA plots optimized for custom independent villa builds. Located directly off the National Highway bypass, this project provides top-tier infrastructure, concrete roads, decorative compound wall, and immediate registration capabilities. Ideal for smart investment or immediate construction.",
     brochureUrl: "/brochure/Hindustan Residency Brochure.pdf",
     images: {
