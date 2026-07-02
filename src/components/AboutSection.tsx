@@ -119,24 +119,13 @@ export default function AboutSection() {
             {/* Main Image */}
             <div className="absolute inset-0 w-4/5 h-[85%] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/prop_penthouse.jpg"
+                src="/images/logo.jpg"
                 alt="Penthouse Living Room"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-            {/* Secondary Floating Image */}
-            <div className="absolute bottom-0 right-0 w-3/5 h-[50%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-              <Image
-                src="/images/prop_villa.jpg"
-                alt="Minimalist Ibiza Villa"
-                fill
-                sizes="(max-width: 768px) 100vw, 30vw"
-                className="object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
-            
             {/* Decorative block */}
             <div className="absolute -top-6 -left-6 w-32 h-32 border-t-4 border-l-4 border-primary-red -z-10 opacity-30" />
             <div className="absolute -bottom-6 -right-6 w-32 h-32 border-b-4 border-r-4 border-primary-red -z-10 opacity-30" />
