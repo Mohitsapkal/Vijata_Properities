@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { MapPin, Phone, MessageCircle, Navigation, Clock, Building2 } from "lucide-react";
+import { MapPin, Phone, Navigation, Clock, Building2 } from "lucide-react";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -196,7 +197,7 @@ export default function LocationMapSection() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] text-white py-3.5 text-xs font-bold uppercase tracking-wider hover:scale-105 active:scale-95 transition-transform duration-300 shadow-md"
               >
-                <MessageCircle className="h-4.5 w-4.5" fill="currentColor" />
+                <WhatsAppIcon className="h-4.5 w-4.5" />
                 WhatsApp
               </a>
             </div>

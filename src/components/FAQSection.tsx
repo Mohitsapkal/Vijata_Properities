@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -205,8 +206,9 @@ export default function FAQSection() {
               href="https://wa.me/919823131416?text=Hi%2C%20I%20have%20a%20question%20about%20Vijeta%20Properties"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-primary-red hover:underline"
+              className="inline-flex items-center gap-1 font-bold text-[#25D366] hover:underline"
             >
+              <WhatsAppIcon className="h-4 w-4" />
               Chat with us on WhatsApp
             </a>
           </p>

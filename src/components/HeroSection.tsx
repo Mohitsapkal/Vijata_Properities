@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import { ArrowDown, MessageCircle, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -151,7 +152,7 @@ export default function HeroSection() {
                 rel="noopener noreferrer"
                 className="group flex items-center justify-center gap-3 rounded-full border border-white/30 bg-white/10 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white hover:text-gray-900 active:scale-95"
               >
-                <MessageCircle className="h-5 w-5 text-[#25D366] transition-transform duration-300 group-hover:rotate-12" fill="currentColor" />
+                <WhatsAppIcon className="h-5 w-5 text-[#25D366] transition-transform duration-300 group-hover:rotate-12" />
                 Chat on WhatsApp
               </a>
             </div>

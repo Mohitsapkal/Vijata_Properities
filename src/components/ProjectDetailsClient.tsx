@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin,
   Phone,
-  MessageCircle,
   Download,
   Calendar,
   Sparkles,
@@ -27,6 +26,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import { Project } from "@/data/projects";
 
 // Dynamic highlights icon resolver
@@ -189,7 +189,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2.5 rounded-full bg-emerald-500 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md hover:scale-105 active:scale-95 transition-transform duration-300"
                 >
-                  <MessageCircle className="h-4.5 w-4.5" fill="currentColor" />
+                  <WhatsAppIcon className="h-4.5 w-4.5" />
                   WhatsApp Inquiry
                 </a>
 
@@ -549,7 +549,7 @@ export default function ProjectDetailsClient({ project }: ProjectDetailsClientPr
                 type="submit"
                 className="w-full mt-4 flex items-center justify-center gap-2 rounded-xl bg-primary-red py-4 text-xs font-bold uppercase tracking-widest text-white shadow-md hover:bg-red-700 active:scale-95 transition-all cursor-pointer"
               >
-                <MessageCircle className="h-4.5 w-4.5" fill="currentColor" />
+                <WhatsAppIcon className="h-4.5 w-4.5" />
                 Submit via WhatsApp
               </button>
             </form>

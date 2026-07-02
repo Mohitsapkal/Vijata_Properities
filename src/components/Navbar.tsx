@@ -5,6 +5,7 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -184,6 +185,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.08, duration: 0.4 }}
               >
+                <WhatsAppIcon className="h-5 w-5" />
                 Chat on WhatsApp
               </motion.a>
             </nav>

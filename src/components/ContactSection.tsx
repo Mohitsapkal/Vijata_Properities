@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -326,7 +327,7 @@ export default function ContactSection() {
                   <span>Preparing WhatsApp Chat...</span>
                 ) : (
                   <>
-                    <MessageCircle className="h-4.5 w-4.5" fill="currentColor" />
+                    <WhatsAppIcon className="h-4.5 w-4.5" />
                     Send Inquiry on WhatsApp
                   </>
                 )}

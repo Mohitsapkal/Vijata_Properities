@@ -3,7 +3,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, MessageCircle, MapPin, ArrowRight, Phone } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin, ArrowRight, Phone } from "lucide-react";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import { projects } from "@/data/projects";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -337,7 +338,7 @@ export default function PropertiesCarousel() {
                       className="flex items-center justify-center gap-2 rounded-xl border border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white px-4 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300"
                       aria-label={`WhatsApp enquiry for ${project.name}`}
                     >
-                      <MessageCircle className="h-4.5 w-4.5" fill="currentColor" />
+                      <WhatsAppIcon className="h-4.5 w-4.5" />
                     </a>
                     <a
                       href="tel:+919823131416"
